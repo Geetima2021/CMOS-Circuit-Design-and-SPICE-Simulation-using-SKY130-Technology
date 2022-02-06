@@ -9,6 +9,7 @@
 # Table of contents
 
 - [Overview](#overview)
+- 
 - [Program included](#prog)
 
 # Overview
@@ -155,6 +156,11 @@ plot -Vdd#branch
 .endc
 .end
 ```
+![02_IDVgs_0 39_w015l_wf](https://user-images.githubusercontent.com/63381455/152692664-6eea9ddb-6265-4262-bda6-02efdef8cfab.png)
+![02_IDVgs_0 39_w015l](https://user-images.githubusercontent.com/63381455/152692672-4faf43d4-7550-4ac2-86b8-8cf5e402ad1b.png)
+
+
+
 5. Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inverter circuit for wp/lp = 2.34wn/ln
 
 ```bash
