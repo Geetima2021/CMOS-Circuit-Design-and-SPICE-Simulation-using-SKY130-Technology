@@ -260,7 +260,7 @@ plot in out
 
 <!---![delay](https://user-images.githubusercontent.com/63381455/152683309-3b51ac22-5c82-48e0-87be-585a9c0e5e54.png)--->
 
-The delay table for different PMOS size with respect to constant NMOS size using tsmc 250um technology file for tt corner is as shown below
+The delay table for different PMOS size with respect to constant NMOS size using tsmc 025um technology file for tt corner is as shown below
 
 | **(Wp/Lp)um** | **(Wn/Ln)um** | **Switching threshold (Vm) V** | **Rise delay(ps)**     | **Fall delay (ps)**    |
 |---------------|---------------|--------------------------------|------------------------|------------------------|
