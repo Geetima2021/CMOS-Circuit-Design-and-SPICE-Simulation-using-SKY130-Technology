@@ -260,7 +260,7 @@ plot in out
 
 <!---![delay](https://user-images.githubusercontent.com/63381455/152683309-3b51ac22-5c82-48e0-87be-585a9c0e5e54.png)--->
 
-<!----The delay table for different PMOS size with respect to constant NMOS size using tsmc 025um technology file for tt corner is as shown below---->
+The delay table for different PMOS size with respect to constant NMOS size using tsmc 250nm technology file for tt corner is as shown below. The programs required for evaluation of the rise delay and fall delay for different (w/l) ratio of NMOS and PMOS transistor is [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/Program).
 
 | **(Wp/Lp)um** | **(Wn/Ln)um** | **Switching threshold (Vm) V** | **Rise delay(ps)**     | **Fall delay (ps)**    |
 |---------------|---------------|--------------------------------|------------------------|------------------------|
