@@ -1,0 +1,26 @@
+Spice deck to evaluate the dyanamic characteristics of CMOS, (W/L)p = 5(W/L)n
+
+** Netlist description **
+
+M1 out in vdd vdd pmos W = 1.875u L = 0.25u
+M2 out in 0 0 nmos W = 0.375u L = 0.25u
+
+cload out 0 10f
+Vin in 0 pulse (0 2.5 1ps 10ps 10ps 1ns 2ns)
+Vdd vdd 0 2.5V
+
+** include library
+.LIB "tsmc_025um_model.mod.spice" cmos_models
+
+** Dynamic characteristics simulation command **
+
+.op
+.tran 10ps 5ns
+
+** control/output commands
+
+.control
+run
+plot in out
+.endc
+.end
