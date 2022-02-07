@@ -146,7 +146,7 @@ In the above two program the IDVgs curve for L =2um and L = 0.15u is plotted. It
 
 ![IDVgs_LC_sc](https://user-images.githubusercontent.com/63381455/152711755-c0767cf6-9040-4d17-b721-aae885d9f8fc.JPG)
 
-5. Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inverter circuit for wp/lp = 2.34wn/ln
+3. Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inverter circuit for wp/lp = 2.34wn/ln
 
 ```bash
 Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inverter circuit for wp/lp = 2.34wn/ln
@@ -185,7 +185,7 @@ plot in out
 
 ![03_riseFall_2 34wl](https://user-images.githubusercontent.com/63381455/152681843-4b5273fc-fd11-455f-ba7b-f8b071b0b47a.png)
 
-6. Spice deck to plot the vtc characteristics of a cmos inverter circuit for wp/lp = 2.34wn/ln
+4. Spice deck to plot the vtc characteristics of a cmos inverter circuit for wp/lp = 2.34wn/ln
 ```bash
 Spice deck to plot the vtc characteristics of a cmos inverter circuit for wp/lp = 2.34wn/ln
 
@@ -219,6 +219,8 @@ plot in out
 ![03_vtc_2 34wl_wf](https://user-images.githubusercontent.com/63381455/152681920-f5cf0fa0-2bf9-4094-bb34-8c1cd3248615.png)
 
 ![03_vtc_2 34wl](https://user-images.githubusercontent.com/63381455/152681922-93c4189c-1c95-4f93-a00e-1a0e85f8f9ad.png)
+
+5. Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inverter circuit for wp/lp = wn/ln
 
 ```bash
 Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inverter circuit for wp/lp = wn/ln
@@ -260,7 +262,7 @@ plot in out
 
 <!---![delay](https://user-images.githubusercontent.com/63381455/152683309-3b51ac22-5c82-48e0-87be-585a9c0e5e54.png)--->
 
-The delay table for different PMOS size with respect to constant NMOS size using tsmc 250nm technology file for tt corner is as shown below. The programs required for evaluation of the rise delay and fall delay for different (w/l) ratio of NMOS and PMOS transistor is [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/Program} and so is the static characterisctics switching threshold evaluation. 
+The delay table for different PMOS size with respect to constant NMOS size using tsmc 250nm technology file for tt corner is as shown below. The programs required for evaluation of the rise delay and fall delay for different (w/l) ratio of NMOS and PMOS transistor is [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/Program) and so is the static characterisctics switching threshold evaluation. 
 | **(Wp/Lp)um** | **(Wn/Ln)um** | **Switching threshold (Vm) V** | **Rise delay(ps)**     | **Fall delay (ps)**    |
 |---------------|---------------|--------------------------------|------------------------|------------------------|
 | Wp/Lp         | 1.Wn/Ln       | ~0.99                          | 1.1641 - 1.0159 = 148  | 2.07769 - 2.00578= 72  |
@@ -268,6 +270,143 @@ The delay table for different PMOS size with respect to constant NMOS size using
 | Wp/Lp         | 3.Wn/Ln       | 1.25129 =~1.25                 | 1.07287 - 1.0159 = 57  | 2.08619 - 2.00583 = 80 |
 | Wp/Lp         | 4.Wn/Ln       | 1.32054 =~1.32                 | 1.06101 -1.01589 = 45  | 2.0933 - 2.00593 = 84  |
 | Wn/Ln         | 5.Wn/Ln       | 0.918462 =~1.4                 | 1.05387 - 1.01548 = 37 | 2.0944 - 2.00582 = 88  |
-  
 
+6. Spice deck to find the noise margin of a cmos inverter circuit for (wp/lp=1/0.15) and (wn/ln=0.36/0.15)
 
+```bash
+Spice deck to find the noise margin of a cmos inverter circuit for (wp/lp=1/0.15) and (wn/ln=0.36/0.15)
+
+*Model description
+.param temp = 27
+
+*Netlist description
+
+XM1 out in Vdd Vdd sky130_fd_pr__pfet_01v8 W =1 L = 0.15
+XM1 out in 0 0 sky130_fd_pr__nfet_01v8 W =0.36 L = 0.15 
+cload out 0 50fF
+
+Vdd Vdd 0 1.8V
+Vin in 0 1.8V
+
+*include library
+.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
+
+*simulation commands
+.op
+.dc Vin 0 1.8V 0.01
+
+*interactive interpretor commandw
+.control
+run
+display
+setplot dc1
+plot out vs in
+.endc
+.end
+
+```
+![09_noisemargin_wf](https://user-images.githubusercontent.com/63381455/152843755-83a4eb04-74a0-4db2-91c3-3469e562ad19.png)
+
+![09_noisemargin](https://user-images.githubusercontent.com/63381455/152843762-231be30e-8ef5-4314-a2b0-8ec7773097e1.png)
+
+The noise margin defines the maximum allowable range for which the device can operate properly. NMH and NML is calculated using the formula below:
+
+``` bash
+   NMH = VOH - VIH
+   NML = VIL - VOL
+```   
+   From the above plot 
+```bash
+VOH = 1.63125
+VIH = 0.964516
+NMH = 1.63125 - 0.964516 
+    = 0.666734
+```
+```bash
+VIL = 0.801613
+VOL = 0.121875
+NML = 0.801613 - 0.121875 
+    = 0.679738
+```
+7. Spice deck to check the dc characteristics of the CMOS transistor with varying power supply
+
+This program shows another CMOS robustness characteristics, power supply variation. The output below shows that the change input voltage of CMOS keeping the size of the transistor constant does not have any impact on the behaviour of CMOS.
+```bash
+Spice deck to check the dc characteristics of the CMOS transistor with varying power supply
+
+*Model parameters
+.param temp =27
+
+*Netlist description
+XM1 out in Vdd Vdd sky130_fd_pr__pfet_01v8 w=1 l=0.15
+XM2 out in 0 0 sky130_fd_pr__nfet_01v8 w=0.36 l=0.15
+cload out 0 50fF
+Vin in 0 1.8V
+Vdd Vdd 0 1.8V
+
+*include library
+.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
+
+*Control command
+
+.control
+let powersupply = 1.8
+alter Vdd = powersupply
+     let supplyvoltagevariation = 0
+     dowhile supplyvoltagevariation < 6
+     dc Vin 0 1.8 0.01
+     let powersupply = powersupply - 0.2
+     alter Vdd = powersupply
+     let supplyvoltagevariation = supplyvoltagevariation + 1
+    end
+
+plot dc1.out vs in dc2.out vs in dc3.out vs in dc4.out vs in dc5.out vs in xlabel "input voltage [V]" 
+ylabel "output voltage [V]"  title "Inverter dc characteristics as a function of supply voltage" 
+
+.endc
+.end
+```
+![10_powsup_var_wf](https://user-images.githubusercontent.com/63381455/152846501-56336f02-80c4-4d1e-8522-1599c3b17e11.png)
+
+![10_powsup_var](https://user-images.githubusercontent.com/63381455/152846503-41a87b13-312b-40d7-a339-d348134f113b.png)
+
+8. Spice deck to plot the dc characteristics of a cmos inverter circuit for 7wp/0.15lp and 0.42wn/0.15ln
+
+ This program shows another robust behaviour of the CMOS inverter, device variation. As seen from the output characteristics it is observe that the no change in the behavioural aspect of CMOS occurs accept that the switching threshold is shifted towards right.
+
+```bash
+Spice deck to plot the dc characteristics of a cmos inverter circuit for 7wp/0.15lp and 0.42wn/0.15ln
+
+*Model Description
+.param temp=27
+
+*Including sky130 library files
+.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
+
+*Netlist Description
+
+XM1 out in vdd vdd sky130_fd_pr__pfet_01v8 w=7 l=0.15
+XM2 out in 0 0 sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+
+Cload out 0 50fF
+
+Vdd vdd 0 1.8V
+Vin in 0 1.8V
+
+*simulation commands
+
+.op
+.dc Vin 0 1.8 0.01
+
+*interactive interpretor command
+.control
+run
+setplot dc1
+display
+plot out vs in
+.endc
+.end
+
+```
+![11_deviceVariation_wfVm](https://user-images.githubusercontent.com/63381455/152848582-b940d2db-eb05-4100-86c1-8094914cc61b.png)
+![11_deviceVariation](https://user-images.githubusercontent.com/63381455/152848590-12cbdb5b-bae5-40da-84b6-fe99ccbd65b3.png)
