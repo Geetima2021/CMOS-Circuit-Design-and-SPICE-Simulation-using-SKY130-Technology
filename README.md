@@ -17,7 +17,36 @@ This repository deals with the CMOS circuit design and spice simulation using SK
 
 The programs below are performed for sky130 technology node and TT corner
 
-1a. Spice deck for w=0.39u L=0.15u and generate ID-VDS graph
+1a. Spice deck for w=5u L=2u and generate ID-VDS graph
+
+```bash
+Spice deck to generate the ID-Vds curve of a NMOS transistor using sky130 technology 
+*Model Description
+.param temp=27
+
+*Including sky130 library files
+.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
+
+*Netlist Description
+XM1 Vdd n1 0 0 sky130_fd_pr__nfet_01v8 w=5 l=2
+R1 n1 in 55
+Vdd vdd 0 1.8V
+Vin in 0 1.8V
+
+*simulation commands
+.op
+.dc Vdd 0 1.8 0.1 Vin 0 1.8 0.2
+
+*interactive interpretor command
+.control
+run
+display
+setplot dc1
+plot -Vdd#branch
+.endc
+.end
+```
+1b. Spice deck for w=0.39u L=0.15u and generate ID-VDS graph
 
 ```bash
 Spice deck for w=0.39u L=0.15u and generate ID-VDS graph
@@ -48,36 +77,9 @@ plot -Vdd#branch
 .end
 ```
 
-1b. Spice deck for w=5u L=2u and generate ID-VDS graph
 
-```bash
-Spice deck to generate the ID-Vds curve of a NMOS transistor using sky130 technology 
-*Model Description
-.param temp=27
+The above two programs is written to generate the IDVDS curve for different transistor sizes .The snapshot of the output is as shown in the figure below. The individual output for the program can be found [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/image/output_TT).
 
-*Including sky130 library files
-.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
-
-*Netlist Description
-XM1 Vdd n1 0 0 sky130_fd_pr__nfet_01v8 w=5 l=2
-R1 n1 in 55
-Vdd vdd 0 1.8V
-Vin in 0 1.8V
-
-*simulation commands
-.op
-.dc Vdd 0 1.8 0.1 Vin 0 1.8 0.2
-
-*interactive interpretor command
-.control
-run
-display
-setplot dc1
-plot -Vdd#branch
-.endc
-.end
-```
-The above two programs is written to generate the IDVDS curve for short channel and long channel transistors.As shown in the output waveform below it is obsrve that for 2u channel length the curve is quadradic in nature for differnt values of Vgs where as in case of the 0.15u channel length the curve is linear in nature for the same Vgs value as the 2u length. Also the value of the peak current of the long channel is more as compared to the short channel. The individualoutputr for the program can be found [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/image/output_TT).
 ![ID_Vds_Lc_sc](https://user-images.githubusercontent.com/63381455/152710606-e9c80981-27e0-47be-9a5f-e9790679b422.JPG)
 
 2a. Spice deck for w=5u L=2u to generate Id-Vgs curve
@@ -142,7 +144,7 @@ plot -Vdd#branch
 .endc
 .end
 ```
-In the above two program the IDVgs curve for L =2um and L = 0.15u is plotted. It is observe that the ID curve for L =2um is quadratic as compared to L =0.15um. The output of the above program can be viwed individually [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/image/output_TT).
+In the above two program the IDVgs curve for different transistor sizes and the snapshot of the same is shown below. The output of the above program can be viwed individually [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/image/output_TT).
 
 ![IDVgs_LC_sc](https://user-images.githubusercontent.com/63381455/152711755-c0767cf6-9040-4d17-b721-aae885d9f8fc.JPG)
 
@@ -185,7 +187,10 @@ plot in out
 
 ![03_riseFall_2 34wl](https://user-images.githubusercontent.com/63381455/152681843-4b5273fc-fd11-455f-ba7b-f8b071b0b47a.png)
 
-4. Spice deck to plot the vtc characteristics of a cmos inverter circuit for wp/lp = 2.34wn/ln
+
+4. These set of programs analyis the static and dynamic characteristics for CMOS inverter of differnt sizes. Here, the CMOS robustness for the variation in switching threshold, noise margin, power supply variation and device variation is plotted and verified as per theoritical understanding. Also, the change in the dynamic characteristic (rise delay, fall delay) is observe and the importance of selecting a proper set of transistor size as per requirement is seen.
+
+Spice deck to plot the vtc characteristics of a cmos inverter circuit for wp/lp = 2.34wn/ln
 ```bash
 Spice deck to plot the vtc characteristics of a cmos inverter circuit for wp/lp = 2.34wn/ln
 
@@ -216,7 +221,9 @@ plot in out
 .endc
 .end
 ```
+
 ![03_vtc_2 34wl_wf](https://user-images.githubusercontent.com/63381455/152681920-f5cf0fa0-2bf9-4094-bb34-8c1cd3248615.png)
+
 
 ![03_vtc_2 34wl](https://user-images.githubusercontent.com/63381455/152681922-93c4189c-1c95-4f93-a00e-1a0e85f8f9ad.png)
 
@@ -254,7 +261,9 @@ plot in out
 .end
 
 ```
+
 ![04_riseFall_1wl_wf](https://user-images.githubusercontent.com/63381455/152682013-253c279e-64e1-40de-a43d-938e3881fd39.png)
+
 
 ![04_riseFall_1wl](https://user-images.githubusercontent.com/63381455/152682015-f13c3249-ffd0-42be-8d2e-239e91ae474c.png)
 
@@ -270,6 +279,14 @@ The delay table for different PMOS size with respect to constant NMOS size using
 | Wp/Lp         | 3.Wn/Ln       | 1.25129 =~1.25                 | 1.07287 - 1.0159 = 57  | 2.08619 - 2.00583 = 80 |
 | Wp/Lp         | 4.Wn/Ln       | 1.32054 =~1.32                 | 1.06101 -1.01589 = 45  | 2.0933 - 2.00593 = 84  |
 | Wn/Ln         | 5.Wn/Ln       | 0.918462 =~1.4                 | 1.05387 - 1.01548 = 37 | 2.0944 - 2.00582 = 88  |
+
+Certain observations is made from the above table
+
+- For (Wp/Lp) = 2.(Wn/Ln), the rise and fall delay is observe to be approximately equal and thus these set of transistor pair is best for the clock buffers.
+- The other transistor sizes can still find application in the data path as regular inverters/buffer where compromise on the rise and fall delay can be made.
+-  When Wp/Lp is increased, the rise delay is isgnificantly reduced because time required for the output capacitor to charge decreases significantly and the reason is the availability of a bigger area to charge the capacitor.
+   Ron(PMOS) ~ 2.5*Ron(NMOS)
+- Due to fabrication process obtaining the exact sizes of the transistor is not possible and the small variation in the switching threshold between the different transistor sizes act as boon in managing the device behaviour.
 
 6. Spice deck to find the noise margin of a cmos inverter circuit for (wp/lp=1/0.15) and (wn/ln=0.36/0.15)
 
@@ -305,9 +322,12 @@ plot out vs in
 .end
 
 ```
+
 ![09_noisemargin_wf](https://user-images.githubusercontent.com/63381455/152843755-83a4eb04-74a0-4db2-91c3-3469e562ad19.png)
 
+
 ![09_noisemargin](https://user-images.githubusercontent.com/63381455/152843762-231be30e-8ef5-4314-a2b0-8ec7773097e1.png)
+
 
 The noise margin defines the maximum allowable range for which the device can operate properly. NMH and NML is calculated using the formula below:
 
@@ -366,9 +386,12 @@ ylabel "output voltage [V]"  title "Inverter dc characteristics as a function of
 .endc
 .end
 ```
+
 ![10_powsup_var_wf](https://user-images.githubusercontent.com/63381455/152846501-56336f02-80c4-4d1e-8522-1599c3b17e11.png)
 
+
 ![10_powsup_var](https://user-images.githubusercontent.com/63381455/152846503-41a87b13-312b-40d7-a339-d348134f113b.png)
+
 
 8. Spice deck to plot the dc characteristics of a cmos inverter circuit for 7wp/0.15lp and 0.42wn/0.15ln
 
@@ -408,5 +431,8 @@ plot out vs in
 .end
 
 ```
+
 ![11_deviceVariation_wfVm](https://user-images.githubusercontent.com/63381455/152848582-b940d2db-eb05-4100-86c1-8094914cc61b.png)
+
+
 ![11_deviceVariation](https://user-images.githubusercontent.com/63381455/152848590-12cbdb5b-bae5-40da-84b6-fe99ccbd65b3.png)
