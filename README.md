@@ -271,14 +271,26 @@ plot in out
 
 <!---![delay](https://user-images.githubusercontent.com/63381455/152683309-3b51ac22-5c82-48e0-87be-585a9c0e5e54.png)--->
 
-The delay table for different PMOS size with respect to constant NMOS size using tsmc 250nm technology file for tt corner is as shown below. The programs required for evaluation of the rise delay and fall delay for different (w/l) ratio of NMOS and PMOS transistor is [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/Program) and so is the static characterisctics switching threshold evaluation. 
-| **(Wp/Lp)um** | **(Wn/Ln)um** | **Switching threshold (Vm) V** | **Rise delay(ps)**     | **Fall delay (ps)**    |
+The delay table for different PMOS size with respect to constant NMOS size using sky130technology file for tt corner is as shown below. The analysis starts from w = 0.42 and l = 0.14um. The programs required for evaluation of the rise delay and fall delay for different (w/l) ratio of NMOS and PMOS transistor is [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/Program) and so is the static characterisctics switching threshold evaluation. 
+
+Table: Delay table of different transistor sizes using sky130 tt corner
+
+| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **switching threshold (V)** |
+|-----------|-------------|---------------------|--------------------|-----------------------------|
+| wp/lp     | 1.wn/ln     |          593        |         238        |           0.831765          |
+| wp/lp     | 2.wn/ln     |         313         |         251        |           0.889839          |
+| wp/lp     | 3.wn/ln     |         210         |         253        |           0.893548          |
+| wp/lp     | 4.wn/ln     |         159         |         256        |           0.916129          |
+| wp/lp     | 5.wn/ln     |         126         |         258        |           0.929032          |
+
+
+<!---| **(Wp/Lp)um** | **(Wn/Ln)um** | **Switching threshold (Vm) V** | **Rise delay(ps)**     | **Fall delay (ps)**    |
 |---------------|---------------|--------------------------------|------------------------|------------------------|
 | Wp/Lp         | 1.Wn/Ln       | ~0.99                          | 1.1641 - 1.0159 = 148  | 2.07769 - 2.00578= 72  |
 | Wp/Lp         | 2.Wn/Ln       | 1.1519 = ~1.2                  | 1.09627 -01.01591 = 80 | 2.08198 - 2.00582 = 76 |
 | Wp/Lp         | 3.Wn/Ln       | 1.25129 =~1.25                 | 1.07287 - 1.0159 = 57  | 2.08619 - 2.00583 = 80 |
 | Wp/Lp         | 4.Wn/Ln       | 1.32054 =~1.32                 | 1.06101 -1.01589 = 45  | 2.0933 - 2.00593 = 84  |
-| Wn/Ln         | 5.Wn/Ln       | 0.918462 =~1.4                 | 1.05387 - 1.01548 = 37 | 2.0944 - 2.00582 = 88  |
+| Wn/Ln         | 5.Wn/Ln       | 0.918462 =~1.4                 | 1.05387 - 1.01548 = 37 | 2.0944 - 2.00582 = 88  |--->
 
 Certain observations is made from the above table
 
