@@ -1,0 +1,28 @@
+Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inverter circuit for wp/lp = wn/ln
+
+*Model description
+.param temp = 27
+
+*Netlist description
+XM1 out in Vdd Vdd sky130_fd_pr__pfet_01v8 L=0.15 W=0.42
+XM2 out in 0 0 sky130_fd_pr__nfet_01v8 L=0.15 W=0.42
+cload out 0 50fF
+Vdd Vdd 0 1.8V
+Vin in 0 pulse 0 1.8 0 10ps 10ps 2ns 4ns
+
+*include library
+.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
+
+*simulation commands
+.op
+.tran 10ps 10ns
+
+*interactive interpretor commands
+.control
+run
+display
+setplot tran1
+plot in out
+.endc
+.end
+
