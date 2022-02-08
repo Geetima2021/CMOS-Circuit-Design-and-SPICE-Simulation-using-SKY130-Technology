@@ -348,6 +348,17 @@ VOL = 0.121875
 NML = 0.801613 - 0.121875 
     = 0.679738
 ```
+The table below shows the noise margin for differnt transistor sizes. It is obseve that when (Wp/Lp) = 2.(Wn/Ln) there is a rise at the NMH because PMOS is responsible for holding the charges on the capacitance. When the size of PMOS is increased, a low-resistance path from supply to the capacitance is formed and as a result of that, the capacitance is able to retain the charge for a longer amount of time resulting in an increased NMH. - When (Wp/Lp) = 4.(Wn/Ln) there is a drop at the NML because the NMOS has now become weaker than the PMOS - When (Wp/Lp) = 5.(Wn/Ln) the NMh almost comes to a static point. - In the above table, NMl is not affected much but NMh has increased by 120mV but this range is still acceptable and this proves the CMOS inverter robustness with respect to the Noise MaFinally, the areas that can be used for digital and analog applications are stated in the figure below:
+ 
+| **(Wp/Lp)um** | **(Wn/Ln)um** | **Switching threshold (Vm) V** | **NMH** | **NML** |
+|---------------|---------------|--------------------------------|---------|---------|
+| Wp/Lp         | 1.Wn/Ln       | ~0.99                          | 0.3V    | 0.3V    |
+| Wp/Lp         | 2.Wn/Ln       | 1.1519 = ~1.2                  | 0.35V   | 0.3V    |
+| Wp/Lp         | 3.Wn/Ln       | 1.25129 =~1.25                 | 0.4V    | 0.3V    |
+| Wp/Lp         | 4.Wn/Ln       | 1.32054 =~1.32                 | 0.42V   | 0.27V   |
+| Wn/Ln         | 5.Wn/Ln       | 0.918462 =~1.4                 | 0.42V   | 0.27V   |
+
+
 7. Spice deck to check the dc characteristics of the CMOS transistor with varying power supply
 
 This program shows another CMOS robustness characteristics, power supply variation. The output below shows that the change input voltage of CMOS keeping the size of the transistor constant does not have any impact on the behaviour of CMOS.
