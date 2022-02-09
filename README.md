@@ -10,7 +10,7 @@
 
 # Overview
 
-This repository deals with the CMOS circuit design and spice simulation using SKY130 tecvhology as a part of the internship program by [VLSI system design](https://www.vlsisystemdesign.com/cmos-circuit-design-spice-simulation-using-sky130-technology/). CMOS is known for its robustness and is the most widely in designing  of circuit. As a beginner level course the emphasis is understanding the PMOS and NMOS transistor finally followed by the CMOS transistor. The first section of the course the theortical understanding of the NMOS transistor followed by its practical implementation to understand the different mode of operation of the NMOS transistor.
+Open source EDA tools are the 0 cost way of analysing and understandimg the theortical aspects of any VLSI circuit starting from the basic CMOS inverter. Followng, the open source trend [VLSI system design](https://www.vlsisystemdesign.com/cmos-circuit-design-spice-simulation-using-sky130-technology) integrated the open source tool and Google/skywater 130nm PDK on the course/workhop on CMOS Circuit Design and SPICE Simulation using SKY130 Technology.   CMOS is known for its robustness and is the most widely in designing  of circuit. As a beginner level course the emphasis is understanding the PMOS and NMOS transistor finally followed by the CMOS transistor. The first section of the course the theortical understanding of the NMOS transistor followed by its practical implementation to understand the different mode of operation of the NMOS transistor.
 
 
 # Program included
