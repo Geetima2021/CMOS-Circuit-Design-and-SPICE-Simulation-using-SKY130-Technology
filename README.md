@@ -333,11 +333,11 @@ Table: Delay table of different transistor sizes using sky130 tt corner
 
 | **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **switching threshold (V)** |
 |-----------|-------------|---------------------|--------------------|-----------------------------|
-| wp/lp     | 1.wn/ln     |          593        |         238        |           0.831765          |
-| wp/lp     | 2.wn/ln     |         313         |         251        |           0.889839          |
-| wp/lp     | 3.wn/ln     |         210         |         253        |           0.893548          |
-| wp/lp     | 4.wn/ln     |         159         |         256        |           0.916129          |
-| wp/lp     | 5.wn/ln     |         126         |         258        |           0.929032          |
+| wp/lp     | 1.wn/ln     |         150        |         73       |           0.831765          |
+| wp/lp     | 2.wn/ln     |         333         |         268        |           0.889839          |
+| wp/lp     | 3.wn/ln     |         235         |         272       |           0.893548          |
+| wp/lp     | 4.wn/ln     |         180         |         273       |           0.916129          |
+| wp/lp     | 5.wn/ln     |         147         |         275        |           0.929032          |
 
 
 <!---| **(Wp/Lp)um** | **(Wn/Ln)um** | **Switching threshold (Vm) V** | **Rise delay(ps)**     | **Fall delay (ps)**    |
