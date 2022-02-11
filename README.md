@@ -77,7 +77,6 @@ ID = 0
 
 
 
-# Program inclu
 The programs below are performed for sky130 technology node and TT corner
 
 1a. Spice deck for w=5u L=2u and generate ID-VDS graph
@@ -87,8 +86,8 @@ Spice deck to generate the ID-Vds curve of a NMOS transistor using sky130 techno
 *Model Description
 .param temp=27
 
-*Including sky130 library files
-.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
+*Include model file
+.lib "../sky130_fd_pr/models/sky130.lib.spice" tt
 
 *Netlist Description
 XM1 Vdd n1 0 0 sky130_fd_pr__nfet_01v8 w=5 l=2
@@ -123,8 +122,8 @@ R1 in n1 55
 Vin in 0 1.8V    
 Vdd Vdd 0 1.8V   
 
-*include library for model sky130_fd_pr__nfet_01v8 description
-.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
+*include model file
+.lib "../sky130_fd_pr/models/sky130.lib.spice" tt
 
 *Simulation commands
 .op  
@@ -151,11 +150,10 @@ The above two programs is written to generate the IDVDS curve for different tran
 *Model Description
 .param temp=27
 
-*Including sky130 library files
-.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
+*Include model file
+.lib "../sky130_fd_pr/models/sky130.lib.spice" tt
 
 *Netlist Description
-
 XM1 Vdd n1 0 0 sky130_fd_pr__nfet_01v8 w=5 l=2
 R1 n1 in 55
 Vdd vdd 0 1.8V
@@ -191,8 +189,8 @@ R1 in n1 55
 Vin in 0 1.8V    
 Vdd Vdd 0 1.8V   
 
-*include library for model sky130_fd_pr__nfet_01v8 description
-.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
+*include model file
+.lib "../sky130_fd_pr/models/sky130.lib.spice" tt
 
 *Simulation commands
 .op  
@@ -220,23 +218,20 @@ Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inve
 .param temp = 27
 
 *Netlist description
-
 XM1 out in Vdd Vdd sky130_fd_pr__pfet_01v8 W =0.84 L = 0.15
 XM1 out in 0 0 sky130_fd_pr__nfet_01v8 W =0.36 L = 0.15 
 cload out 0 50fF
-
 Vdd Vdd 0 1.8V
 Vin in 0 pulse 0 1.8V 0 10ps 10ps 2ns 4ns
 
-*include library
-.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
+*include model file
+.lib "../sky130_fd_pr/models/sky130.lib.spice" tt
 
 *simulation commands
 .op
 .tran 10ps 10ns
 
 *interactive interpretor command
-
 .control
 run
 display
@@ -264,12 +259,11 @@ Spice deck to plot the vtc characteristics of a cmos inverter circuit for wp/lp 
 XM1 out in Vdd Vdd sky130_fd_pr__pfet_01v8 W =0.84 L = 0.15
 XM1 out in 0 0 sky130_fd_pr__nfet_01v8 W =0.36 L = 0.15 
 cload out 0 50fF
-
 Vdd Vdd 0 1.8V
 Vin in 0 1.8V
 
-*include library
-.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
+*include model file
+.lib "../sky130_fd_pr/models/sky130.lib.spice" tt
 
 *simulation commands
 .op
@@ -299,7 +293,6 @@ Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inve
 .param temp = 27
 
 *Netlist description
-
 XM1 out in Vdd Vdd sky130_fd_pr__pfet_01v8 W =0.84 L = 0.15
 XM1 out in 0 0 sky130_fd_pr__nfet_01v8 W =0.84 L = 0.15 
 cload out 0 50fF
@@ -307,8 +300,8 @@ cload out 0 50fF
 Vdd Vdd 0 1.8V
 Vin in 0 pulse 0 1.8V 0 10ps 10ps 2ns 4ns
 
-*include library
-.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
+*include model file
+.lib "../sky130_fd_pr/models/sky130.lib.spice" tt
 
 *simulation commands
 .op
@@ -380,8 +373,8 @@ cload out 0 50fF
 Vdd Vdd 0 1.8V
 Vin in 0 1.8V
 
-*include library
-.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
+*include model file
+.lib "../sky130_fd_pr/models/sky130.lib.spice" tt
 
 *simulation commands
 .op
@@ -450,8 +443,8 @@ cload out 0 50fF
 Vin in 0 1.8V
 Vdd Vdd 0 1.8V
 
-*include library
-.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
+*include model file
+.lib "../sky130_fd_pr/models/sky130.lib.spice" tt
 
 *Control command
 
@@ -489,16 +482,13 @@ Spice deck to plot the dc characteristics of a cmos inverter circuit for 7wp/0.1
 *Model Description
 .param temp=27
 
-*Including sky130 library files
-.lib "/home/geetima/MySpace/Process_corner_variation/TT_spice_130nm/sky130_fd_pr/models/sky130.lib.spice" tt
+*Including model file
+.lib "../sky130_fd_pr/models/sky130.lib.spice" tt
 
 *Netlist Description
-
 XM1 out in vdd vdd sky130_fd_pr__pfet_01v8 w=7 l=0.15
 XM2 out in 0 0 sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
-
 Cload out 0 50fF
-
 Vdd vdd 0 1.8V
 Vin in 0 1.8V
 
