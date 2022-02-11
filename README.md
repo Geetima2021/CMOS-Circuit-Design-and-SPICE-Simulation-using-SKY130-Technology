@@ -11,7 +11,7 @@
 - [Regions of operation of NMOS](#operation)
   - [Cut off region](#cut)
   - [Resistive or Linear region of operation](#linear)
-  - [Saturation region of opearation](#sat)
+  - [Saturation region of operation](#sat)
 - [Introduction to spice](#spice)
   - [Circuit description in spice syntax](#syntax)
   - [Spice deck to generate the ID-Vds curve of a NMOS transistor using sky130 technology](#Deck1)
@@ -21,13 +21,10 @@
 
 # Overview
 
-<!---Open source EDA tools are the 0 cost way of analysing and understandimg the theortical aspects of any VLSI circuit starting from the basic CMOS inverter. Followng, the open source trend [VLSI system design](https://www.vlsisystemdesign.com/cmos-circuit-design-spice-simulation-using-sky130-technology) integrated the open source tool and Google/skywater 130nm PDK on the course/workhop on CMOS Circuit Design and SPICE Simulation using SKY130 Technology.   CMOS is known for its robustness and is the most widely in designing  of circuit. As a beginner level course the emphasis is understanding the PMOS and NMOS transistor finally followed by the CMOS transistor. The first section of the course the theortical understanding of the NMOS transistor followed by its practical implementation to understand the different mode of operation of the NMOS transistor.-->
+[VLSI system design](https://www.vlsisystemdesign.com/cmos-circuit-design-spice-simulation-using-sky130-technology) workshop on circuit design and spice simulation is base on the open source tool ngspice and Google/Skywater 130nm PDK. The use of the open source tools and pdk is advantegeous for the learner with  respect to usage of these tools after the workshop. [VLSI system design](https://www.vlsisystemdesign.com/cmos-circuit-design-spice-simulation-using-sky130-technology) workshop focusses on both theoritical as well as lab based learning. Starting form the concepts of basic element in cicuit design NMOS, its characteristics curve IDVgs, IDVds, its regions of operation - drain current equation, threshold voltage equation, effect of long channel and short channel device (velocity saturation)on the behavioral characteristic of NMOS. Spice scripting and simulation of the learned concept gives a more practical analysis of its characteritics. CMOS inverter circuits its design consideration is learned iand simulated including its voltage transfer characteristics, static behaviour evaluation defining its robustness based on the 4 parameters viz switching threshold voltage (Vm), noise magin, power supply variation and device variation. Also the dynamic characteristics – propagation delay of the CMOS is learned and simulated. The importance of the transistor sizes while designing a CMOS inverter for a particular application is seen. All the above design consideration assist in finding the delay table and noise margin for differnent transistor sizes which can be compared with the actual values provided by the partipdk cular technology file. This woekshop gives a detail understanding on the basic building block of the VLSI design – CMOS.
 
-# Why do we need circuit design and spice simulation?
-
-
-# Program included
-
+nese
+# Program inclu
 The programs below are performed for sky130 technology node and TT corner
 
 1a. Spice deck for w=5u L=2u and generate ID-VDS graph
