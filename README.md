@@ -25,7 +25,9 @@
 
 # [Why do we need circuit design and spice simulation?](#circuit)
 
-Circuit design is basically the designing of the logic gates like and, or, nand, buffer or any other circuit using particular connection fashion and size of the pmos and nmos transistor for obtaining the required functionality of a particular circuit. Spice simulation on the other hand is requited to fed in input waveform to the the circuit inorder to analyses the output. It also gives a very important table known as delay table which is base of crrosstalk, clock tree syntesis, sta, physical design etc. Without simulation the VLSI indusry has to face more challenges. 
+Circuit design is basically the designing of the logic gates like and, or, nand, buffer or any other circuit using particular connection fashion and size of the pmos and nmos transistor for obtaining the required functionality of a particular circuit. Spice simulation on the other hand is requited to fed in input waveform to the the circuit inorder to analyses the output. It also gives a very important table known as delay table which is base of crrosstalk, clock tree syntesis, sta, physical design etc. Without simulation the VLSI indusry has to face more challenges. An NMOS circuit and its spice deck is as shown below. The detail description of the spice deck shall be done later.
+
+![2_1](https://user-images.githubusercontent.com/63381455/153574079-4f5b74e7-c21c-4fee-bca8-06c15718d3dd.png)
 
 
 
