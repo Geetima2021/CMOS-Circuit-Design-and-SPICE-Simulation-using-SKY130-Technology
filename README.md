@@ -348,13 +348,13 @@ Table: Delay table of different transistor sizes using sky130 tt corner
 | Wp/Lp         | 4.Wn/Ln       | 1.32054 =~1.32                 | 1.06101 -1.01589 = 45  | 2.0933 - 2.00593 = 84  |
 | Wn/Ln         | 5.Wn/Ln       | 0.918462 =~1.4                 | 1.05387 - 1.01548 = 37 | 2.0944 - 2.00582 = 88  |--->
 
-Certain observations is made from the above table
+<!---Certain observations is made from the above table
 
 - For (Wp/Lp) = 2.(Wn/Ln), the rise and fall delay is observe to be approximately equal and thus these set of transistor pair is best for the clock buffers.
 - The other transistor sizes can still find application in the data path as regular inverters/buffer where compromise on the rise and fall delay can be made.
 -  When Wp/Lp is increased, the rise delay is isgnificantly reduced because time required for the output capacitor to charge decreases significantly and the reason is the availability of a bigger area to charge the capacitor.
    Ron(PMOS) ~ 2.5*Ron(NMOS)
-- Due to fabrication process obtaining the exact sizes of the transistor is not possible and the small variation in the switching threshold between the different transistor sizes act as boon in managing the device behaviour.
+- Due to fabrication process obtaining the exact sizes of the transistor is not possible and the small variation in the switching threshold between the different transistor sizes act as boon in managing the device behaviour.--->
 
 6. Spice deck to find the noise margin of a cmos inverter circuit for (wp/lp=1/0.15) and (wn/ln=0.36/0.15)
 
