@@ -46,15 +46,32 @@ The pictorial representation of an NMOS device with its various terminals is as 
 
 # [Regions of operation of NMOS](#operation)
 
-There are three regions of operation in NMOS transistor. In each of the region the drain current (ID) changes with respect to the gate to source voltage (Vgs) and drain to source voltage(Vds). 
+There are three regions of operation in NMOS transistor. In each of the region The drain current (ID) changes with respect to the gate to source voltage (Vgs) and drain to source voltage(Vds). 
+When Vsb = 0
+- Initiallly Gate voltage, source voltage and drain voltage is at zero Volt. 
+- The source substrate and drain substrate reqion forms a pn juction diode and both the jucnction are off as no voltage is applied to the drain and source terminal, 
+- A high resistance area is formed between the source and the drain. Now 
+- When the Vgs voltage is increased a positive charge is formed at the gate terminal which repels the positive charge of the p type substrate from the substrate which leaves negative charge at the surface. 
+- Vgs is  further increase more and more positive charge of the ptype substrate repels resulting in depletion region. 
+- the semiconductor surface inverts to n type material and the phenomenon is known as strong inversion.
+
+-***The gate to source voltage at which the strong inversion occurs is known as “Threshold voltage"***. 
+
+When Vsb = +ve voltage
+
+- The formation of the channel (strong inversion at the surface) is delayed as compared to when Vsb is 0.
+- n<sup>+</sup> and the p substrate forms depletion region across the source substrate and drain substarte junction 
+- Width of the depletion region more towards the source substrate junction
+- More gate to source voltage Vgs required for strong inversion to occur
+ 
 
 ## [Cut off region](#cut)
 
-Inintially the  gate voltage, source voltage and drain voltage is at zero Volt. The source substrate and drain substrate reqion forms a pn juction diode and both the jucnction are off as no voltage is applied to the drain and source terminal, thus a high resistance area is formed between the source and the drain. Now when the Vgs voltage is increased a positive charge is formed at the gate terminal which repels the positive charge of the p type substrate from the substrate which leaves negative charge at the surface. When, the Vgs is  further increase more and more positive charge of the ptype substrate repels resulting in depletion region. Hence we can say that the semiconductor surface inverts to n type material and the phenomenon is known as strong inversion.
+In this region the gate to source voltage Vgs is less than the threshold voltage and thus no channel appears between the source and the drain region indicating a high resistance area between the source and the drain. Hence, the drain current is zero.
 
-***The gate to source voltage at which the strong inversion occurs is known as “Threshold voltage"***.
+For cut off, 0 < Vgs < Vth 
+ID = 0
 
-Initially 
 ![3](https://user-images.githubusercontent.com/63381455/153581528-0e461759-bd12-4f00-8c3e-7201c17dae21.png)
 
 
