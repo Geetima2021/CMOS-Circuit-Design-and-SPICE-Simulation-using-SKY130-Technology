@@ -6,11 +6,24 @@
 # Table of contents
 
 - [Overview](#overview)
+- [Why do we need circuit design and spice simulation?](#circuit)
+- [NMOS- Basic element in circuit design](#NMOS)
+- [Regions of operation of NMOS](#operation)
+  - [Cut off region](#cut)
+  - [Resistive or Linear region of operation](#linear)
+  - [Saturation region of opearation](#sat)
+- [Introduction to spice](#spice)
+  - [Circuit description in spice syntax](#syntax)
+  - [Spice deck to generate the ID-Vds curve of a NMOS transistor using sky130 technology](#Deck1)
+  - [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
+  
 - [Program included](#prog)
 
 # Overview
 
-Open source EDA tools are the 0 cost way of analysing and understandimg the theortical aspects of any VLSI circuit starting from the basic CMOS inverter. Followng, the open source trend [VLSI system design](https://www.vlsisystemdesign.com/cmos-circuit-design-spice-simulation-using-sky130-technology) integrated the open source tool and Google/skywater 130nm PDK on the course/workhop on CMOS Circuit Design and SPICE Simulation using SKY130 Technology.   CMOS is known for its robustness and is the most widely in designing  of circuit. As a beginner level course the emphasis is understanding the PMOS and NMOS transistor finally followed by the CMOS transistor. The first section of the course the theortical understanding of the NMOS transistor followed by its practical implementation to understand the different mode of operation of the NMOS transistor.
+<!---Open source EDA tools are the 0 cost way of analysing and understandimg the theortical aspects of any VLSI circuit starting from the basic CMOS inverter. Followng, the open source trend [VLSI system design](https://www.vlsisystemdesign.com/cmos-circuit-design-spice-simulation-using-sky130-technology) integrated the open source tool and Google/skywater 130nm PDK on the course/workhop on CMOS Circuit Design and SPICE Simulation using SKY130 Technology.   CMOS is known for its robustness and is the most widely in designing  of circuit. As a beginner level course the emphasis is understanding the PMOS and NMOS transistor finally followed by the CMOS transistor. The first section of the course the theortical understanding of the NMOS transistor followed by its practical implementation to understand the different mode of operation of the NMOS transistor.-->
+
+# Why do we need circuit design and spice simulation?
 
 
 # Program included
