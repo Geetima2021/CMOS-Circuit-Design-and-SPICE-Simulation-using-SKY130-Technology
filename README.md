@@ -23,11 +23,40 @@
 
 [VLSI system design](https://www.vlsisystemdesign.com/cmos-circuit-design-spice-simulation-using-sky130-technology) workshop on circuit design and spice simulation is base on the open source tool ngspice and Google/Skywater 130nm PDK. The use of the open source tools and pdk is advantegeous for the learner with  respect to usage of these tools after the workshop. [VLSI system design](https://www.vlsisystemdesign.com/cmos-circuit-design-spice-simulation-using-sky130-technology) workshop focusses on both theoritical as well as lab based learning. Starting form the concepts of basic element in cicuit design NMOS, its characteristics curve IDVgs, IDVds, its regions of operation - drain current equation, threshold voltage equation, effect of long channel and short channel device (velocity saturation)on the behavioral characteristic of NMOS. Spice scripting and simulation of the learned concept gives a more practical analysis of its characteritics. CMOS inverter circuits its design consideration is learned iand simulated including its voltage transfer characteristics, static behaviour evaluation defining its robustness based on the 4 parameters viz switching threshold voltage (Vm), noise magin, power supply variation and device variation. Also the dynamic characteristics – propagation delay of the CMOS is learned and simulated. The importance of the transistor sizes while designing a CMOS inverter for a particular application is seen. All the above design consideration assist in finding the delay table and noise margin for differnent transistor sizes which can be compared with the actual values provided by the partipdk cular technology file. This woekshop gives a detail understanding on the basic building block of the VLSI design – CMOS.
 
+
 # [Why do we need circuit design and spice simulation?](#circuit)
 
 Circuit design is basically the designing of the logic gates like and, or, nand, buffer or any other circuit using particular connection fashion and size of the pmos and nmos transistor for obtaining the required functionality of a particular circuit. Spice simulation on the other hand is requited to fed in input waveform to the the circuit inorder to analyses the output. It also gives a very important table known as delay table which is base of crrosstalk, clock tree syntesis, sta, physical design etc. Without simulation the VLSI indusry has to face more challenges. An NMOS circuit and its spice deck is as shown below. The detail description of the spice deck shall be done later.
 
 ![2_1](https://user-images.githubusercontent.com/63381455/153574079-4f5b74e7-c21c-4fee-bca8-06c15718d3dd.png)
+
+# [NMOS- Basic element in circuit design](#NMOS)
+
+The pictorial representation of an NMOS device with its various terminals is as shown in figure below. Is consist of the followng
+
+1. 4 terminal device - drain, gate, source, body
+2. Ptype substrate
+3. Consist of Isolation region (Si0<sub>2</sub>)
+4. n<sup>+</sup> drain and source terminal
+5. Gate oxide
+6. PolySi or metal gate – drives the nmos
+
+
+![Nmos](https://user-images.githubusercontent.com/63381455/153582815-e7c5a70f-7b06-4ab4-8dac-e6cc8159161c.png)
+
+# [Regions of operation of NMOS](#operation)
+
+There are three regions of operation in NMOS transistor. In each of the region the drain current (ID) changes with respect to the gate to source voltage (Vgs) and drain to source voltage(Vds). 
+
+## [Cut off region](#cut)
+
+Inintially the  gate voltage, source voltage and drain voltage is at zero Volt. The source substrate and drain substrate reqion forms a pn juction diode and both the jucnction are off as no voltage is applied to the drain and source terminal, thus a high resistance area is formed between the source and the drain. Now when the Vgs voltage is increased a positive charge is formed at the gate terminal which repels the positive charge of the p type substrate from the substrate which leaves negative charge at the surface. When, the Vgs is  further increase more and more positive charge of the ptype substrate repels resulting in depletion region. Hence we can say that the semiconductor surface inverts to n type material and the phenomenon is known as strong inversion.
+
+***The gate to source voltage at which the strong inversion occurs is known as “Threshold voltage"***.
+
+Initially 
+![3](https://user-images.githubusercontent.com/63381455/153581528-0e461759-bd12-4f00-8c3e-7201c17dae21.png)
+
 
 
 
