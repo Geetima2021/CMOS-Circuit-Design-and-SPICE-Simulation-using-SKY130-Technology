@@ -330,23 +330,24 @@ The delay table for different PMOS size with respect to constant NMOS size using
 
 Table1: Delay table of 10fF capacitive load [w=0.42,L= 0.15] using sky130 tt corner
 
-| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** |
-|-----------|-------------|---------------------|--------------------|
-| wp/lp     | 1.wn/ln     |         149        |         73       |       
-| wp/lp     | 2.wn/ln     |         88        |         75        |         
-| wp/lp     | 3.wn/ln     |         69         |         76       |          
-| wp/lp     | 4.wn/ln     |         59         |         78       |           
-| wp/lp     | 5.wn/ln     |         52         |         80        |           
+| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **Switching threshold (V)** |
+|-----------|-------------|---------------------|--------------------|----------------------------
+| wp/lp     | 1(wn/ln)    |         149        |         73       |   0.831765   |  
+| wp/lp     | 2(wn/ln)     |         88        |         75        |   0.889839   |  
+| wp/lp     | 2.5(wn/ln)   |         73        |         75        |  0.895161    |
+| wp/lp     | 3(wn/ln )    |         69         |         76       |   0.895161   |       
+| wp/lp     | 4(wn/ln)     |         59         |         78       |    0.916129  |     
+| wp/lp     | 5(wn/ln)     |         52         |         80        |   0.929032  |      
 
 Table2: Delay table of 50fF capacitive load [w=1.68,L= 0.15] using sky130 tt corner
  
-| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | 
-|-----------|-------------|---------------------|--------------------|
-| wp/lp     | 1.wn/ln     |         183        |         78       |         
-| wp/lp     | 2.wn/ln     |         104         |         81        |        
-| wp/lp     | 3.wn/ln     |         128         |         81       |          
-| wp/lp     | 4.wn/ln     |         64         |         82       |          
-| wp/lp     | 5.wn/ln     |         57         |         85        |       
+| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | ** Switching threshold |
+|-----------|-------------|---------------------|--------------------|-------------------------
+| wp/lp     | 1.wn/ln     |         183        |         78       |    0.819836 |     
+| wp/lp     | 2.wn/ln     |         104         |         81        |  0.858065  |    
+| wp/lp     | 3.wn/ln     |         128         |         81       |  0.879032   |        
+| wp/lp     | 4.wn/ln     |         64         |         82       |  0.896774   |     
+| wp/lp     | 5.wn/ln     |         57         |         85        |  0.909677  |     
 
 
 <!---| **(Wp/Lp)um** | **(Wn/Ln)um** | **Switching threshold (Vm) V** | **Rise delay(ps)**     | **Fall delay (ps)**    |
@@ -425,7 +426,7 @@ VOL = 0.121875
 NML = 0.801613 - 0.121875 
     = 0.679738
 ```
-The table below shows the noise margin for differnt transistor sizes. It is obseve that when (Wp/Lp) = 2.(Wn/Ln) there is a rise at the NMH because PMOS is responsible for holding the charges on the capacitance. When the size of PMOS is increased, a low-resistance path from supply to the capacitance is formed and as a result of that, the capacitance is able to retain the charge for a longer amount of time resulting in an increased NMH. - When (Wp/Lp) = 4.(Wn/Ln) there is a drop at the NML because the NMOS has now become weaker than the PMOS - When (Wp/Lp) = 5.(Wn/Ln) the NMh almost comes to a static point. - In the above table, NMl is not affected much but NMh has increased by 120mV but this range is still acceptable and this proves the CMOS inverter robustness with respect to the Noise MaFinally, the areas that can be used for digital and analog applications are stated in the figure below:
+<!---The table below shows the noise margin for differnt transistor sizes. It is obseve that when (Wp/Lp) = 2.(Wn/Ln) there is a rise at the NMH because PMOS is responsible for holding the charges on the capacitance. When the size of PMOS is increased, a low-resistance path from supply to the capacitance is formed and as a result of that, the capacitance is able to retain the charge for a longer amount of time resulting in an increased NMH. - When (Wp/Lp) = 4.(Wn/Ln) there is a drop at the NML because the NMOS has now become weaker than the PMOS - When (Wp/Lp) = 5.(Wn/Ln) the NMh almost comes to a static point. - In the above table, NMl is not affected much but NMh has increased by 120mV but this range is still acceptable and this proves the CMOS inverter robustness with respect to the Noise MaFinally, the areas that can be used for digital and analog applications are stated in the figure below:
  
 | **(Wp/Lp)um** | **(Wn/Ln)um** | **Switching threshold (Vm) V** | **NMH** | **NML** |
 |---------------|---------------|--------------------------------|---------|---------|
@@ -433,7 +434,7 @@ The table below shows the noise margin for differnt transistor sizes. It is obse
 | Wp/Lp         | 2.Wn/Ln       | 1.1519 = ~1.2                  | 0.35V   | 0.3V    |
 | Wp/Lp         | 3.Wn/Ln       | 1.25129 =~1.25                 | 0.4V    | 0.3V    |
 | Wp/Lp         | 4.Wn/Ln       | 1.32054 =~1.32                 | 0.42V   | 0.27V   |
-| Wn/Ln         | 5.Wn/Ln       | 0.918462 =~1.4                 | 0.42V   | 0.27V   |
+| Wn/Ln         | 5.Wn/Ln       | 0.918462 =~1.4                 | 0.42V   | 0.27V   |--->
 
 
 7. Spice deck to check the dc characteristics of the CMOS transistor with varying power supply
