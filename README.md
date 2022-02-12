@@ -333,11 +333,20 @@ Table: Delay table of different transistor sizes using sky130 tt corner
 
 | **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **switching threshold (V)** |
 |-----------|-------------|---------------------|--------------------|-----------------------------|
-| wp/lp     | 1.wn/ln     |         150        |         73       |           0.831765          |
-| wp/lp     | 2.wn/ln     |         333         |         268        |           0.889839          |
-| wp/lp     | 3.wn/ln     |         235         |         272       |           0.893548          |
-| wp/lp     | 4.wn/ln     |         180         |         273       |           0.916129          |
-| wp/lp     | 5.wn/ln     |         147         |         275        |           0.929032          |
+| wp/lp     | 1.wn/ln     |         149        |         73       |           0.831765          |
+| wp/lp     | 2.wn/ln     |         88        |         75        |           0.889839          |
+| wp/lp     | 3.wn/ln     |         69         |         76       |           0.893548          |
+| wp/lp     | 4.wn/ln     |         59         |         78       |           0.916129          |
+| wp/lp     | 5.wn/ln     |         52         |         80        |           0.929032        |
+
+ 
+| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **switching threshold (V)** |
+|-----------|-------------|---------------------|--------------------|-----------------------------|
+| wp/lp     | 1.wn/ln     |         183        |         78       |           0.831765          |
+| wp/lp     | 2.wn/ln     |         104         |         81        |           0.889839          |
+| wp/lp     | 3.wn/ln     |         128         |         81       |           0.893548          |
+| wp/lp     | 4.wn/ln     |         64         |         82       |           0.916129          |
+| wp/lp     | 5.wn/ln     |         57         |         85        |           0.929032          |
 
 
 <!---| **(Wp/Lp)um** | **(Wn/Ln)um** | **Switching threshold (Vm) V** | **Rise delay(ps)**     | **Fall delay (ps)**    |
