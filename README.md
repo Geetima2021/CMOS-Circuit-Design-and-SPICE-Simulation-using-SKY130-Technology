@@ -329,24 +329,25 @@ plot in out
 
 The delay table for different PMOS size with respect to constant NMOS size using sky130technology file for tt corner is as shown below. The analysis starts from w = 0.42 and l = 0.14um. The programs required for evaluation of the rise delay and fall delay for different (w/l) ratio of NMOS and PMOS transistor is [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/Program) and so is the static characterisctics switching threshold evaluation. 
 
-Table: Delay table of different transistor sizes using sky130 tt corner
+Table1: Delay table of 10fF capacitive load and 0.1ns input slew [w=0.42,L= 0.15]
 
-| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **switching threshold (V)** |
-|-----------|-------------|---------------------|--------------------|-----------------------------|
-| wp/lp     | 1.wn/ln     |         149        |         73       |           0.831765          |
-| wp/lp     | 2.wn/ln     |         88        |         75        |           0.889839          |
-| wp/lp     | 3.wn/ln     |         69         |         76       |           0.893548          |
-| wp/lp     | 4.wn/ln     |         59         |         78       |           0.916129          |
-| wp/lp     | 5.wn/ln     |         52         |         80        |           0.929032        |
+| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** |
+|-----------|-------------|---------------------|--------------------|
+| wp/lp     | 1.wn/ln     |         149        |         73       |       
+| wp/lp     | 2.wn/ln     |         88        |         75        |         
+| wp/lp     | 3.wn/ln     |         69         |         76       |          
+| wp/lp     | 4.wn/ln     |         59         |         78       |           
+| wp/lp     | 5.wn/ln     |         52         |         80        |           
 
+Table2: Delay table of 50fF capacitive load and 0.1ns input slew [w=1.68,L= 0.15]
  
-| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **switching threshold (V)** |
-|-----------|-------------|---------------------|--------------------|-----------------------------|
-| wp/lp     | 1.wn/ln     |         183        |         78       |           0.831765          |
-| wp/lp     | 2.wn/ln     |         104         |         81        |           0.889839          |
-| wp/lp     | 3.wn/ln     |         128         |         81       |           0.893548          |
-| wp/lp     | 4.wn/ln     |         64         |         82       |           0.916129          |
-| wp/lp     | 5.wn/ln     |         57         |         85        |           0.929032          |
+| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | 
+|-----------|-------------|---------------------|--------------------|
+| wp/lp     | 1.wn/ln     |         183        |         78       |         
+| wp/lp     | 2.wn/ln     |         104         |         81        |        
+| wp/lp     | 3.wn/ln     |         128         |         81       |          
+| wp/lp     | 4.wn/ln     |         64         |         82       |          
+| wp/lp     | 5.wn/ln     |         57         |         85        |       
 
 
 <!---| **(Wp/Lp)um** | **(Wn/Ln)um** | **Switching threshold (Vm) V** | **Rise delay(ps)**     | **Fall delay (ps)**    |
