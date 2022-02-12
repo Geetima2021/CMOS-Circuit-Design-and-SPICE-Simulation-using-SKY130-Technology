@@ -341,11 +341,12 @@ Table1: Delay table of 10fF capacitive load [w=0.42,L= 0.15] using sky130 tt cor
 
 Table2: Delay table of 50fF capacitive load [w=1.68,L= 0.15] using sky130 tt corner
  
-| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | ** Switching threshold |
+| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | ** Switching threshold (V)** |
 |-----------|-------------|---------------------|--------------------|-------------------------
 | wp/lp     | 1.wn/ln     |         183        |         78       |    0.819836 |     
-| wp/lp     | 2.wn/ln     |         104         |         81        |  0.858065  |    
-| wp/lp     | 3.wn/ln     |         128         |         81       |  0.879032   |        
+| wp/lp     | 2.wn/ln     |         104         |         81        |  0.858065  |  
+| wp/lp     | 2.5(wn/ln)   |         88       |         81       |  0.870968    |
+| wp/lp     | 3.wn/ln     |         77         |         78       |  0.879032   |        
 | wp/lp     | 4.wn/ln     |         64         |         82       |  0.896774   |     
 | wp/lp     | 5.wn/ln     |         57         |         85        |  0.909677  |     
 
