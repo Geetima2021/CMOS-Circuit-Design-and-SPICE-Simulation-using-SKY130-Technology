@@ -55,7 +55,7 @@ When Vsb = 0
 - Vgs is  further increase more and more positive charge of the ptype substrate repels resulting in depletion region. 
 - the semiconductor surface inverts to n type material and the phenomenon is known as strong inversion.
 
--***The gate to source voltage at which the strong inversion occurs is known as “Threshold voltage"***. 
+***The gate to source voltage at which the strong inversion occurs is known as “Threshold voltage"***. 
 
 When Vsb = +ve voltage
 
