@@ -72,7 +72,7 @@ In this region the gate to source voltage Vgs is less than the threshold voltage
 For cut off, 0 < Vgs < Vth 
 ID = 0
 
-![3](https://user-images.githubusercontent.com/63381455/153581528-0e461759-bd12-4f00-8c3e-7201c17dae21.png)
+<!---![3](https://user-images.githubusercontent.com/63381455/153581528-0e461759-bd12-4f00-8c3e-7201c17dae21.png)--->
 
 
 
@@ -329,7 +329,7 @@ plot in out
 
 The delay table for different PMOS size with respect to constant NMOS size using sky130technology file for tt corner is as shown below. The analysis starts from w = 0.42 and l = 0.14um. The programs required for evaluation of the rise delay and fall delay for different (w/l) ratio of NMOS and PMOS transistor is [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/Program) and so is the static characterisctics switching threshold evaluation. 
 
-Table1: Delay table of 10fF capacitive load and 0.1ns input slew [w=0.42,L= 0.15]
+Table1: Delay table of 10fF capacitive load and 0.1ns input slew [w=0.42,L= 0.15] using sky130 tt corner
 
 | **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** |
 |-----------|-------------|---------------------|--------------------|
@@ -339,7 +339,7 @@ Table1: Delay table of 10fF capacitive load and 0.1ns input slew [w=0.42,L= 0.15
 | wp/lp     | 4.wn/ln     |         59         |         78       |           
 | wp/lp     | 5.wn/ln     |         52         |         80        |           
 
-Table2: Delay table of 50fF capacitive load and 0.1ns input slew [w=1.68,L= 0.15]
+Table2: Delay table of 50fF capacitive load and 0.1ns input slew [w=1.68,L= 0.15] using sky130 tt corner
  
 | **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | 
 |-----------|-------------|---------------------|--------------------|
