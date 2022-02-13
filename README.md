@@ -64,6 +64,26 @@ When Vsb = +ve voltage
 - Width of the depletion region more towards the source substrate junction
 - More gate to source voltage Vgs required for strong inversion to occur
  
+Threshold voltage:
+```bash
+Vgs = Vto, when Vsb = 0 
+		Vto is a function of manufacturing process
+		
+		Vgs = Vto + V1, when Vsb = +ve 
+		V1 = γ(sqroot(|– 2Φf +Vsb)  - sqroot(|-12Φf |))
+		
+		where,  Φf  = Fermi potential = -Φt *ln(Na/ni)
+		γ = body effect coefficient which expresses the changes in Vsb whose uint is
+		sqroot(V) or V^0.5
+			γ  = div(sqroot(2qNa εSi,Cox)) 
+		where , q = charge of electron 1.602*10^(-19) coloumbs
+			Na = acceptor doping concentration
+			 εSi = relative permitivity of Si  = 11.7
+			 Cox = oxide capacitance
+ ```
+All the above parameter are manufacturing process parameters, given by the foundry.
+	
+ V<sup>0.5</sup>
 
 ## [Cut off region](#cut)
 
@@ -328,7 +348,7 @@ plot in out
 
 The delay table for different PMOS size with respect to constant NMOS size using sky130technology file for tt corner is as shown below. The analysis starts from w = 0.42 and l = 0.14um. The programs required for evaluation of the rise delay and fall delay for different (w/l) ratio of NMOS and PMOS transistor is [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/Program) and so is the static characterisctics switching threshold evaluation. 
 
-Table1: Delay table of 10fF capacitive load [w=0.42,L= 0.15] using sky130 tt corner
+Table1: Delay table using sky130 tt corner
 
 | **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **Switching threshold (V)** |
 |-----------|-------------|---------------------|--------------------|----------------------------
@@ -339,16 +359,38 @@ Table1: Delay table of 10fF capacitive load [w=0.42,L= 0.15] using sky130 tt cor
 | wp/lp     | 4(wn/ln)     |         59         |         78       |    0.916129  |     
 | wp/lp     | 5(wn/ln)     |         52         |         80        |   0.929032  |      
 
-Table2: Delay table of 50fF capacitive load [w=1.68,L= 0.15] using sky130 tt corner
+Table2: Delay table using sky130 ff corner
+
+| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **switching threshold (V)** |
+|-----------|-------------|---------------------|--------------------|-----------------------------|
+| wp/lp     | 1(wn/ln)    |         114         |         60         | 0.809677                    |
+| wp/lp     | 2(wn/ln)    |         69          |         62         | 0.877419                    |
+| wp/lp     | 2.5(wn/ln)  |          60         |         62         | 0.887097                    |
+| wp/lp     | 3(wn/ln)    |         54          |         62         | 0.891935                    |
+| wp/lp     | 4(wn/ln)    |          48         |         64         | 0.914516                    |
+| wp/lp     | 5(wn/ln)    |          42         |         65         | 0.935484                    |
+
+Table3: Delay table using sky130 ss corner
+
+| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | **switching threshold (V)** |
+|-----------|-------------|---------------------|--------------------|-----------------------------|
+| wp/lp     | 1(wn/ln)    |         226         |         93         |             0.85            |
+| wp/lp     | 2(wn/ln)    |         122         |         96         |           0.906452          |
+| wp/lp     | 2.5(wn/ln)  |         103         |         97         |           0.908065          |
+| wp/lp     | 3(wn/ln)    |          95         |         98         |           0.903226          |
+| wp/lp     | 4(wn/ln)    |          76         |         100        |           0.922581          |
+| wp/lp     | 5(wn/ln)    |          64         |         102        |           0.935484          |
+
+
  
-| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | ** Switching threshold (V)** |
+<!---| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | ** Switching threshold (V)** |
 |-----------|-------------|---------------------|--------------------|-------------------------
 | wp/lp     | 1.wn/ln     |         183        |         78       |    0.819836 |     
 | wp/lp     | 2.wn/ln     |         104         |         81        |  0.858065  |  
 | wp/lp     | 2.5(wn/ln)   |         88       |         81       |  0.870968    |
 | wp/lp     | 3.wn/ln     |         77         |         78       |  0.879032   |        
 | wp/lp     | 4.wn/ln     |         64         |         82       |  0.896774   |     
-| wp/lp     | 5.wn/ln     |         57         |         85        |  0.909677  |     
+| wp/lp     | 5.wn/ln     |         57         |         85        |  0.909677  | ---->   
 
 
 <!---| **(Wp/Lp)um** | **(Wn/Ln)um** | **Switching threshold (Vm) V** | **Rise delay(ps)**     | **Fall delay (ps)**    |
