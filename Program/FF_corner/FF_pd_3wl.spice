@@ -1,0 +1,28 @@
+Spice deck to plot the dynamic characteristics of cmos inverter circuit for wp/lp = 3wn/ln
+
+*Model description
+.param temp = 27
+
+*Netlist description
+XM1 out in Vdd Vdd sky130_fd_pr__pfet_01v8 W = 1.26 L = 0.15
+XM2 out in 0 0 sky130_fd_pr__nfet_01v8 W = 0.42 L = 0.15
+cload out 0 10fF
+Vdd Vdd 0 1.8V
+Vin in 0 PULSE 0V 1.8V 0 0.1ns 0.1ns 1ns 2ns
+
+*include model file
+.lib "../../../sky130_fd_pr/models/sky130.lib.spice" ff
+
+*simulation command
+.op
+.tran 1ns 10ns
+
+*interactive interpreter command
+.control
+run
+display
+setplot tran1
+plot out vs time in
+.endc
+.end
+
