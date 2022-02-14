@@ -1,1 +1,0 @@
-Contains the images of the output of all the programs obtained usind sky130 technology tt corner
