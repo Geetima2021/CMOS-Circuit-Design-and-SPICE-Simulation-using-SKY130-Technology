@@ -26,7 +26,7 @@
 
 # [Why do we need circuit design and spice simulation?](#circuit)
 
-Circuit design is basically the designing of the logic gates like and, or, nand, buffer or any other circuit using particular connection fashion and size of the pmos and nmos transistor for obtaining the required functionality of a particular circuit. Spice simulation on the other hand is requited to fed in input waveform to the the circuit inorder to analyses the output. It also gives a very important table known as delay table which is base of crrosstalk, clock tree syntesis, sta, physical design etc. Without simulation the VLSI indusry has to face more challenges. An NMOS circuit and its spice deck is as shown below. The detail description of the spice deck shall be done later.
+Circuit design is basically the designing of the logic gates like and, or, nand, buffer or any other circuit using particular connection fashion and size of the pmos and nmos transistor for obtaining the required functionality of a particular circuit. Spice simulation on the other hand is requited to fed in input waveform to the the circuit inorder to analyses the output. It also gives a very important table known as delay table which is base of crrosstalk, clock tree syntesis, sta, physical design etc. Without simulation the VLSI indusry has to face more challenges. An NMOS circuit and its spice deck is as shown below. .
 
 ![2_1](https://user-images.githubusercontent.com/63381455/153574079-4f5b74e7-c21c-4fee-bca8-06c15718d3dd.png)
 
@@ -83,11 +83,20 @@ ID = 0
 
 ## [Resistive or Linear region of operation](#linear)
 
-- In this region the gate to source voltage is more than the threshold voltage viz Vgs > Vt
-- Transistor is on as strong inversion region is formed across the surface
-- The positive 
+- When Vgs voltage is higher than threshold voltage Vt, the voltage difference results in induce charges across the semiconductor surface (channel)
+- The change in voltage is basically proportional to the change in the channel width
+- When a small voltage is be appiled across the Vds a voltage gradient appears acorss the channel as Vbs is 0V and Vds is = some voltage
+- The effective length (after inversion) L of the channel is less than the actual length which occurs due to the fabrication process
+- V(x) is the voltage at the point x along the width of the channel as shown in the figure below
+
+![induce charge](https://user-images.githubusercontent.com/63381455/153915142-39374920-b343-48cb-b3f8-d7aa79533828.JPG)
+
+Drift current for resistive mode of operation
+
+![Dc_resistive](https://user-images.githubusercontent.com/63381455/153920475-554c6aa6-e093-438c-b25b-afd46d8f4541.JPG)
 
 
+![voltage_gradient](https://user-images.githubusercontent.com/63381455/153896100-ebfd3a42-608f-415d-ab59-ac7bb4cf8a9b.JPG)
 
 The programs below are performed for sky130 technology node and TT corner
 
