@@ -1,0 +1,2 @@
+Programs to analyse the dynamic characteristics (propagation delay) of a CMOS inverter using sky130 TT corner and preparing a delay table from it. 
+The switching threshold voltage for each is also determine using the static characteristic (VTC) 
