@@ -1,0 +1,3 @@
+Contains TT, FF, SS corner output
+Propagation delay and switching threshold voltage output for the dekay table generatiobn
+TT corner also contains IDVGs, IDVds output curves along with other propagation delay for (w/l)p = 2.34(w/l)n
