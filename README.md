@@ -65,35 +65,27 @@ When Vsb = +ve voltage
 - More gate to source voltage Vgs required for strong inversion to occur
  
 Threshold voltage:
-```bash
-Vgs = Vto, when Vsb = 0 
-		Vto is a function of manufacturing process
-		
-		Vgs = Vto + V1, when Vsb = +ve 
-		V1 = γ(sqroot(|– 2Φf +Vsb)  - sqroot(|-12Φf |))
-		
-		where,  Φf  = Fermi potential = -Φt *ln(Na/ni)
-		γ = body effect coefficient which expresses the changes in Vsb whose uint is
-		sqroot(V) or V^0.5
-			γ  = div(sqroot(2qNa εSi,Cox)) 
-		where , q = charge of electron 1.602*10^(-19) coloumbs
-			Na = acceptor doping concentration
-			 εSi = relative permitivity of Si  = 11.7
-			 Cox = oxide capacitance
- ```
+
+![threshold_vtg](https://user-images.githubusercontent.com/63381455/153868933-fb9c25a8-e969-4f75-a9f6-18a571207308.JPG)
+
 All the above parameter are manufacturing process parameters, given by the foundry.
-	
- V<sup>0.5</sup>
+
 
 ## [Cut off region](#cut)
 
 In this region the gate to source voltage Vgs is less than the threshold voltage and thus no channel appears between the source and the drain region indicating a high resistance area between the source and the drain. Hence, the drain current is zero.
 
 For cut off, 0 < Vgs < Vth 
+
 ID = 0
 
 <!---![3](https://user-images.githubusercontent.com/63381455/153581528-0e461759-bd12-4f00-8c3e-7201c17dae21.png)--->
 
+## [Resistive or Linear region of operation](#linear)
+
+- In this region the gate to source voltage is more than the threshold voltage viz Vgs > Vt
+- Transistor is on as strong inversion region is formed across the surface
+- The positive 
 
 
 
@@ -262,7 +254,7 @@ plot in out
 ```
 ![03_riseFall_2 34wl_wf](https://user-images.githubusercontent.com/63381455/152681840-7b0078e8-33b7-46a7-9cc6-faae6b709947.png)
 
-![03_riseFall_2 34wl](https://user-images.githubusercontent.com/63381455/152681843-4b5273fc-fd11-455f-ba7b-f8b071b0b47a.png)
+<!--![03_riseFall_2 34wl](https://user-images.githubusercontent.com/63381455/152681843-4b5273fc-fd11-455f-ba7b-f8b071b0b47a.png)-->
 
 
 4. These set of programs analyis the static and dynamic characteristics for CMOS inverter of differnt sizes. Here, the CMOS robustness for the variation in switching threshold, noise margin, power supply variation and device variation is plotted and verified as per theoritical understanding. Also, the change in the dynamic characteristic (rise delay, fall delay) is observe and the importance of selecting a proper set of transistor size as per requirement is seen.
@@ -301,7 +293,7 @@ plot in out
 ![03_vtc_2 34wl_wf](https://user-images.githubusercontent.com/63381455/152681920-f5cf0fa0-2bf9-4094-bb34-8c1cd3248615.png)
 
 
-![03_vtc_2 34wl](https://user-images.githubusercontent.com/63381455/152681922-93c4189c-1c95-4f93-a00e-1a0e85f8f9ad.png)
+<!--![03_vtc_2 34wl](https://user-images.githubusercontent.com/63381455/152681922-93c4189c-1c95-4f93-a00e-1a0e85f8f9ad.png)-->
 
 5. Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inverter circuit for wp/lp = wn/ln
 
@@ -340,7 +332,7 @@ plot in out
 ![04_riseFall_1wl_wf](https://user-images.githubusercontent.com/63381455/152682013-253c279e-64e1-40de-a43d-938e3881fd39.png)
 
 
-![04_riseFall_1wl](https://user-images.githubusercontent.com/63381455/152682015-f13c3249-ffd0-42be-8d2e-239e91ae474c.png)
+<!--![04_riseFall_1wl](https://user-images.githubusercontent.com/63381455/152682015-f13c3249-ffd0-42be-8d2e-239e91ae474c.png)-->
 
 <!---The delay table for different PMOS size with respect to constant NMOS size for sky 130nm technology node is as shown below --->
 
