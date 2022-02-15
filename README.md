@@ -13,9 +13,11 @@
   - [Resistive or Linear region of operation](#linear)
   - [Saturation region of operation](#sat)
 - [Introduction to spice](#spice)
-  - [Circuit description in spice syntax](#syntax)
-  - [Spice deck to generate the ID-Vds curve of a NMOS transistor using sky130 technology](#Deck1)
+  - [Programs on NMOS transistor characteristics](#prog)
+  - [Spice deck for w=5u L=2u and generate ID-VDS graph](#deck1)
   - [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
+  - [Spice deck for w=5u L=2u to generate Id-Vgs curve](#deck3)
+  - [Spice deck for w=0.39u and l=0.15u to generate Id-Vgs curve](#deck4)
   
 - [Program included](#prog)
 
@@ -95,12 +97,37 @@ Drift current for resistive mode of operation
 
 ![Dc_resistive](https://user-images.githubusercontent.com/63381455/153920475-554c6aa6-e093-438c-b25b-afd46d8f4541.JPG)
 
-
 ![voltage_gradient](https://user-images.githubusercontent.com/63381455/153896100-ebfd3a42-608f-415d-ab59-ac7bb4cf8a9b.JPG)
 
-The programs below are performed for sky130 technology node and TT corner
+## [Saturation region of operation](#sat)
 
-1a. Spice deck for w=5u L=2u and generate ID-VDS graph
+- When (Vgs - Vds) >= Vt, the transistor is said to be in saturation region
+- The voltage at which the difference in (Vgs - Vds) = Vt, pinch off condition is said to occur
+- From the pinch off condition and further rise in threshold voltage, the channel near the drain region slowly starts disappearing as the required condition - strong inversion is violated
+- The drain current in saturation region is given as
+
+![sat](https://user-images.githubusercontent.com/63381455/154033086-00e2c735-9f3d-435c-b00b-92ed3135a661.JPG)
+
+The figure below shows the drain current of both linear and saturation region with varying Vds. The curve is obtain by the spice simualtion of an Nmos transistor.
+
+![IdVds](https://user-images.githubusercontent.com/63381455/154033661-8f20fdbc-56b8-422e-942d-5015f28c781f.JPG)
+
+***The threshold voltage Vt, body coefficient  γ, process trans conductance  and channel length modulation are all technology constants know as spice model parameters, provided by the foundry depending on the process node.***
+
+# [Introduction to spice](#spice)
+
+Spice simualation as required to represent a given circuit in a standard format for its analysis and execution. As mentioned earlier through spice simulation input waveform can be fed into the circuit for the analysis of the output. A number of spice tools are available for creating a spice deck, in our case ngspice is used. There are four basic section required for creating a spice deck of a circuit
+
+- Netlist decription: Obtain from the given circuit - Define input and output node, representation of components based on the technology file, standard format of representation of each part
+- Including technology file: The technology file of any process node is provided by the foundry, contains information of all the parameters required in execution of spice deck
+- Simulation commands: Required Simulation/operation to be executed
+- Control commands: The display or execution of the required output
+
+## Programs on NMOS transistor characteristics  
+
+The following set of programs are wriiten to generate the ID-VDs, ID-Vgs curve of different transistor sizes using sky130 TT corner. 
+
+1a. [Spice deck for w=5u L=2u and generate ID-VDS graph](#deck1)
 ```bash
 Spice deck to generate the ID-Vds curve of a NMOS transistor using sky130 technology 
 *Model Description
@@ -128,7 +155,7 @@ plot -Vdd#branch
 .endc
 .end
 ```
-1b. Spice deck for w=0.39u L=0.15u and generate ID-VDS graph
+1b. [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
 
 ```bash
 Spice deck for w=0.39u L=0.15u and generate ID-VDS graph
@@ -158,13 +185,11 @@ plot -Vdd#branch
 .endc
 .end
 ```
-
-
-The above two programs is written to generate the IDVDS curve for different transistor sizes .The snapshot of the output is as shown in the figure below. The individual output for the program can be found [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/image/output_TT).
+The snapshot of the output is as shown in the figure below. The individual output for the program can be found [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/image/output_TT).
 
 ![ID_Vds_Lc_sc](https://user-images.githubusercontent.com/63381455/152710606-e9c80981-27e0-47be-9a5f-e9790679b422.JPG)
 
-2a. Spice deck for w=5u L=2u to generate Id-Vgs curve
+2a. [Spice deck for w=5u L=2u to generate Id-Vgs curve](#deck3)
 
 ```bash
 *Model Description
@@ -195,7 +220,7 @@ plot -Vdd#branch
 
 ```
 
-2b. Spice deck for w=0.39u and l=0.15u to generate Id-Vgs curve
+2b. [Spice deck for w=0.39u and l=0.15u to generate Id-Vgs curve](#deck4)
 
 ```bash
 Spice deck for w=0.39u and l=0.15u to generate Id-Vgs curve
@@ -228,6 +253,8 @@ plot -Vdd#branch
 In the above two program the IDVgs curve for different transistor sizes and the snapshot of the same is shown below. The output of the above program can be viwed individually [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/image/output_TT).
 
 ![IDVgs_LC_sc](https://user-images.githubusercontent.com/63381455/152711755-c0767cf6-9040-4d17-b721-aae885d9f8fc.JPG)
+
+
 
 3. Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inverter circuit for wp/lp = 2.34wn/ln
 
@@ -448,7 +475,7 @@ plot out vs in
 ![09_noisemargin_wf](https://user-images.githubusercontent.com/63381455/152843755-83a4eb04-74a0-4db2-91c3-3469e562ad19.png)
 
 
-![09_noisemargin](https://user-images.githubusercontent.com/63381455/152843762-231be30e-8ef5-4314-a2b0-8ec7773097e1.png)
+<!--![09_noisemargin](https://user-images.githubusercontent.com/63381455/152843762-231be30e-8ef5-4314-a2b0-8ec7773097e1.png)-->
 
 
 The noise margin defines the maximum allowable range for which the device can operate properly. NMH and NML is calculated using the formula below:
@@ -523,8 +550,6 @@ ylabel "output voltage [V]"  title "Inverter dc characteristics as a function of
 ![10_powsup_var_wf](https://user-images.githubusercontent.com/63381455/152846501-56336f02-80c4-4d1e-8522-1599c3b17e11.png)
 
 
-![10_powsup_var](https://user-images.githubusercontent.com/63381455/152846503-41a87b13-312b-40d7-a339-d348134f113b.png)
-
 
 8. Spice deck to plot the dc characteristics of a cmos inverter circuit for 7wp/0.15lp and 0.42wn/0.15ln
 
@@ -565,4 +590,4 @@ plot out vs in
 ![11_deviceVariation_wfVm](https://user-images.githubusercontent.com/63381455/152848582-b940d2db-eb05-4100-86c1-8094914cc61b.png)
 
 
-![11_deviceVariation](https://user-images.githubusercontent.com/63381455/152848590-12cbdb5b-bae5-40da-84b6-fe99ccbd65b3.png)
+
