@@ -118,7 +118,7 @@ The figure below shows the drain current of both linear and saturation region wi
 
 Spice simualation as required to represent a given circuit in a standard format for its analysis and execution. As mentioned earlier through spice simulation input waveform can be fed into the circuit for the analysis of the output. A number of spice tools are available for creating a spice deck, in our case ngspice is used. There are four basic section required for creating a spice deck of a circuit
 
-- Netlist decription: Obtain from the given circuit - Define input and output node, representation of components based on the technology file, standard format of representation of each part
+- Netlist decription: Obtain from the given circuit - Define input and output node, name nodes component connectivity, component values
 - Including technology file: The technology file of any process node is provided by the foundry, contains information of all the parameters required in execution of spice deck
 - Simulation commands: Required Simulation/operation to be executed
 - Control commands: The display or execution of the required output
