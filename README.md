@@ -25,9 +25,8 @@
   - [Spice programs](#sp)
 - [Conclusion](#con)
 - [Acknowlegement](#ack)
-- [Contact](#con)
+- [Contact imformation](#con)
 
-- [Program included](#prog)
 
 # Overview
 
