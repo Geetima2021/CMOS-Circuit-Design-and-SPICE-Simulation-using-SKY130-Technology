@@ -166,41 +166,10 @@ plot -Vdd#branch
 .endc
 .end
 ```
-1b. [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
 
-```bash
-Spice deck for w=0.39u L=0.15u and generate ID-VDS graph
+![01_IDVds_wF](https://user-images.githubusercontent.com/63381455/154209162-8fba7068-4f66-45e9-b4c0-52d7162710da.png)
 
-*Model description
-.param temp = 27 
-
-*Netlist description
-XM1 Vdd n1 0 0 sky130_fd_pr__nfet_01v8 W =0.39 L = 0.15 
-R1 in n1 55      
-Vin in 0 1.8V    
-Vdd Vdd 0 1.8V   
-
-*include model file
-.lib "../sky130_fd_pr/models/sky130.lib.spice" tt
-
-*Simulation commands
-.op  
-.dc Vdd 0 1.8 0.1 Vin 0 1.8 0.2 
-
-*interactive interpretor command
-.control
-run    
-display  
-setplot dc1
-plot -Vdd#branch  
-.endc
-.end
-```
-The snapshot of the output is as shown in the figure below. The individual output for the program can be found [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/image/output_TT).
-
-![ID_Vds_Lc_sc](https://user-images.githubusercontent.com/63381455/152710606-e9c80981-27e0-47be-9a5f-e9790679b422.JPG)
-
-2a. [Spice deck for w=5u L=2u to generate Id-Vgs curve](#deck3)
+1b. [Spice deck for w=5u L=2u to generate Id-Vgs curve](#deck3)
 
 ```bash
 *Model Description
@@ -230,6 +199,44 @@ plot -Vdd#branch
 .end
 
 ```
+
+![01_IDVgs_quadratic](https://user-images.githubusercontent.com/63381455/154209289-48fdef8b-a5a4-4a9e-a550-d3ccbbf521f2.png)
+
+# [Short channel device -velocity saturation effect](#vel)
+
+
+2a. [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
+
+```bash
+Spice deck for w=0.39u L=0.15u and generate ID-VDS graph
+
+*Model description
+.param temp = 27 
+
+*Netlist description
+XM1 Vdd n1 0 0 sky130_fd_pr__nfet_01v8 W =0.39 L = 0.15 
+R1 in n1 55      
+Vin in 0 1.8V    
+Vdd Vdd 0 1.8V   
+
+*include model file
+.lib "../sky130_fd_pr/models/sky130.lib.spice" tt
+
+*Simulation commands
+.op  
+.dc Vdd 0 1.8 0.1 Vin 0 1.8 0.2 
+
+*interactive interpretor command
+.control
+run    
+display  
+setplot dc1
+plot -Vdd#branch  
+.endc
+.end
+```
+![02_IDVds_0 39_w015l_wf](https://user-images.githubusercontent.com/63381455/154209554-c227f4ef-2d4d-4b16-b4fc-bb521716851b.png)
+
 
 2b. [Spice deck for w=0.39u and l=0.15u to generate Id-Vgs curve](#deck4)
 
@@ -261,10 +268,8 @@ plot -Vdd#branch
 .endc
 .end
 ```
-In the above two program the IDVgs curve for different transistor sizes and the snapshot of the same is shown below. The output of the above program can be viwed individually [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/image/output_TT).
 
-![IDVgs_LC_sc](https://user-images.githubusercontent.com/63381455/152711755-c0767cf6-9040-4d17-b721-aae885d9f8fc.JPG)
-
+![02_IDVgs_0 39_w015l_wf](https://user-images.githubusercontent.com/63381455/154209884-c21b123f-a3d0-4203-ad6d-4ed78d9a92e2.png)
 
 
 3. Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inverter circuit for wp/lp = 2.34wn/ln
