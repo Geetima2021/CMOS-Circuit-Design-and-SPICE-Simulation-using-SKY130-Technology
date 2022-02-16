@@ -16,9 +16,9 @@
   - [Programs on NMOS transistor characteristics](#prog)
   - [Spice deck for w=5u L=2u and generate ID-VDS graph](#deck1)
   - [Spice deck for w=5u L=2u to generate Id-Vgs curve](#deck3)
-   <!-- - [Short channel device - Velocity saturation effect a](#vel) 
-  - - [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
-  - [Spice deck for w=0.39u and l=0.15u to generate Id-Vgs curve](#deck4)
+  - [Short channel device - Velocity saturation effect a](#vel) 
+   - [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
+   - [Spice deck for w=0.39u and l=0.15u to generate Id-Vgs curve](#deck4)
 - [CMOS](#c)
   _ [Voltage tranfer characteristic](#tra)
   - [Static CMOS behaviour - CMOS robustness](#rob)
@@ -26,7 +26,7 @@
 - [Conclusion](#con)
 - [Acknowlegement](#ack)
 - [Contact](#con)
---->
+
 - [Program included](#prog)
 
 # Overview
