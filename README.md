@@ -20,7 +20,7 @@
    - [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
    - [Spice deck for w=0.39u and l=0.15u to generate Id-Vgs curve](#deck4)
 - [CMOS](#c)
-  _ [Voltage tranfer characteristic](#tra)
+  - [Voltage tranfer characteristic](#tra)
   - [Static CMOS behaviour - CMOS robustness](#rob)
   - [Spice programs](#sp)
 - [Conclusion](#con)
