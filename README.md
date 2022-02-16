@@ -68,7 +68,7 @@ When Vsb = +ve voltage
  
 Threshold voltage:
 
-![threshold_vtg](https://user-images.githubusercontent.com/63381455/153868933-fb9c25a8-e969-4f75-a9f6-18a571207308.JPG)
+
 
 All the above parameter are manufacturing process parameters, given by the foundry.
 
