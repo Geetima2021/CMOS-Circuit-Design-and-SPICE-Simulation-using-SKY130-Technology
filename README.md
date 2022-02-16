@@ -15,10 +15,20 @@
 - [Introduction to spice](#spice)
   - [Programs on NMOS transistor characteristics](#prog)
   - [Spice deck for w=5u L=2u and generate ID-VDS graph](#deck1)
-  - [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
   - [Spice deck for w=5u L=2u to generate Id-Vgs curve](#deck3)
+   <!-- - [Short channel device - Velocity saturation effect a](#vel) 
+  - - [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
   - [Spice deck for w=0.39u and l=0.15u to generate Id-Vgs curve](#deck4)
+- [CMOS](#c)
+  _ [Voltage tranfer characteristic](#tra)
+  - [Static CMOS behaviour - CMOS robustness](#rob)
+  - [Spice programs](#sp)
+- [Conclusion](#con)
+- [Acknowlegement](#ack)
+- [Contact](#con)
   
+
+--->
 - [Program included](#prog)
 
 # Overview
@@ -68,6 +78,7 @@ When Vsb = +ve voltage
  
 Threshold voltage:
 
+![threshold_vtg](https://user-images.githubusercontent.com/63381455/154195071-d77cfd3e-bda3-4f6c-946a-6effe617f604.JPG)
 
 
 All the above parameter are manufacturing process parameters, given by the foundry.
@@ -91,7 +102,7 @@ ID = 0
 - The effective length (after inversion) L of the channel is less than the actual length which occurs due to the fabrication process
 - V(x) is the voltage at the point x along the width of the channel as shown in the figure below
 
-![induce charge](https://user-images.githubusercontent.com/63381455/153915142-39374920-b343-48cb-b3f8-d7aa79533828.JPG)
+![induce charge](https://user-images.githubusercontent.com/63381455/154201052-40d1a250-32b2-47a1-a579-395e1753b1f0.JPG)
 
 Drift current for resistive mode of operation
 
