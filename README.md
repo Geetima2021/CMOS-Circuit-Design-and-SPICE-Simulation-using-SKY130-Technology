@@ -16,7 +16,7 @@
   - [Programs on NMOS transistor characteristics](#prog)
   - [Spice deck for w=5u L=2u and generate ID-VDS graph](#deck1)
   - [Spice deck for w=5u L=2u to generate Id-Vgs curve](#deck3)
-  - [Short channel device - Velocity saturation effect a](#vel) 
+  - [Velocity saturation effect a](#vel) 
    - [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
    - [Spice deck for w=0.39u and l=0.15u to generate Id-Vgs curve](#deck4)
 - [CMOS](#c)
@@ -200,7 +200,9 @@ plot -Vdd#branch
 
 ![01_IDVgs_quadratic](https://user-images.githubusercontent.com/63381455/154209289-48fdef8b-a5a4-4a9e-a550-d3ccbbf521f2.png)
 
-# [Short channel device -velocity saturation effect](#vel)
+# [Velocity saturation effect](#vel)
+
+ This is one of the effect for short channel. Conventionally there are three mode of operation of mosfet viz cut off, linear and saturation region, however for lower nodes there are four mode of operation with velocity saturation region being one apart from the other three. In velocity saturation effect it is observe that for lower value of electric field the velocity is linear however after a certain time or higher electric field the velocity starts to saturate or becomes constant due to an effect known as scattering effect.
 
 
 2a. [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
