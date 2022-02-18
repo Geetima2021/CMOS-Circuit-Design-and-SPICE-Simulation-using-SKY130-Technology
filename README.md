@@ -450,7 +450,9 @@ plot in out
 
 
 
-The delay table for different PMOS size with respect to constant NMOS size using sky130technology file for tt corner is as shown below. The analysis starts from w = 0.42 and l = 0.14um. The programs required for evaluation of the rise delay and fall delay for different (w/l) ratio of NMOS and PMOS transistor is [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/Program) and so is the static characterisctics switching threshold evaluation. 
+The delay table for different PMOS size with respect to constant NMOS size using sky130 technology file for tt, ss and ff corner is as shown below. The analysis starts from w = 0.42 and l = 0.15um. The programs required for evaluation of the rise delay and fall delay for different (w/l) ratio of NMOS and PMOS transistor is [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/Program) and so is the static characterisctics switching threshold evaluation. From each of the table it is observe thar for (w/l)p = 2.5(w/l)n, the rise and fall propagation delay is almost equal which makes them perfect for clock network. The other CMOS transistor can be use as regular buffers in other appliactions as in data path. Also seen that with increase in the PMOS size the rise propagation delay start decreasing indicating that the capacitor is charged faster as compared to discharging. The switching threshold volatges are also included for the different transistor sizes.  
+
+***Ron(PMOS) ~ 2.5*Ron(NMOS)***
 
 Table1: Delay table using sky130 tt corner
 
