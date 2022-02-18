@@ -203,7 +203,20 @@ plot -Vdd#branch
 # [Velocity saturation effect](#vel)
 
  This is one of the effect for short channel. Conventionally there are three mode of operation of mosfet viz cut off, linear and saturation region, however for lower nodes there are four mode of operation with velocity saturation region being one apart from the other three. In velocity saturation effect it is observe that for lower value of electric field the velocity is linear however after a certain time or higher electric field the velocity starts to saturate or becomes constant due to an effect known as scattering effect.
+ 
+ ![vel_sat1](https://user-images.githubusercontent.com/63381455/154623491-a1872005-391b-4a17-bb4d-ecf157cd041e.JPG)
 
+
+![vel_sat](https://user-images.githubusercontent.com/63381455/154621528-7f71d7d3-3888-400e-8cc2-d4a6131b3aa3.JPG)
+
+Let us now see the effect of velocity saturation on the drain current equation.
+
+![vel_sat2](https://user-images.githubusercontent.com/63381455/154627026-fd92de12-d1ec-40e2-888e-896b65b19bdb.JPG)
+
+- Current should increase at lower nodes as shown in above equation
+- However velocity saturation causes the device to saturate early
+
+The below peogram shows the effect of velocity saturation on the lower node devices
 
 2a. [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
 
