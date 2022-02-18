@@ -304,8 +304,20 @@ c) Voltage transfer characteristics for static inverter:
  
  Step1: Select few Vgsp value
  
- 
+ | Vgsp Value   | Vin = (Vgsp + Vdd) |
+|--------------|--------------------|
+| Vgsp1 = 0V   | Vin1 = 2v          |
+| Vgsp2 = -0.5 | Vin2 = 1.5V        |
+| Vgsp3 = -1   | Vin3 = 1V          |
+| Vgsp4 = -1.5 | Vin4 = 0.5         |
+| Vgsp5 = -2   | Vin5 = 0V               |   
 
+
+Idsp = -Idsn
+
+The curves which was originally in -Idsp and -Vdsp for PMOS in 3rd quadrant is now change to 4th quadrant with -Vdsp in x axis and Idsn in yaxis and sweep over by Vin = Vgsp+Vdd. Now Idsn vs -Vds curve is drawn for different Vin. The first step of converting Vgsp to Vin is completed. The snapshot of the same is as shown below.
+
+![pmos_charac](https://user-images.githubusercontent.com/63381455/154636215-3f8e3940-9eb5-408a-9f9c-6d8fed65a66b.JPG)
 
 
 
