@@ -19,13 +19,11 @@
   - [Velocity saturation effect a](#vel) 
    - [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
    - [Spice deck for w=0.39u and l=0.15u to generate Id-Vgs curve](#deck4)
-- [CMOS](#c
+- [CMOS](#c)
   - [Voltage tranfer characteristic](#tra)
   - [Static CMOS behaviour - CMOS robustness](#rob)
-  
-- [Conclusion](#con)
 - [Acknowlegement](#ack)
-- [Contact imformation](#con)
+
 
 
 # Overview
@@ -304,24 +302,79 @@ c) Voltage transfer characteristics for static inverter:
  
  Step1: Select few Vgsp value
  
- | Vgsp Value   | Vin = (Vgsp + Vdd) |
+ | VgsP Value   | Vin = (VgsP + Vdd) |
 |--------------|--------------------|
-| Vgsp1 = 0V   | Vin1 = 2v          |
-| Vgsp2 = -0.5 | Vin2 = 1.5V        |
-| Vgsp3 = -1   | Vin3 = 1V          |
-| Vgsp4 = -1.5 | Vin4 = 0.5         |
-| Vgsp5 = -2   | Vin5 = 0V               |   
+| VgsP1 = 0V   | Vin1 = 2v          |
+| VgsP2 = -0.5 | Vin2 = 1.5V        |
+| VgsP3 = -1   | Vin3 = 1V          |
+| VgsP4 = -1.5 | Vin4 = 0.5         |
+| VgsP5 = -2   | Vin5 = 0V               |   
 
 
 Idsp = -Idsn
 
-The curves which was originally in -Idsp and -Vdsp for PMOS in 3rd quadrant is now change to 4th quadrant with -Vdsp in x axis and Idsn in yaxis and sweep over by Vin = Vgsp+Vdd. Now Idsn vs -Vds curve is drawn for different Vin. The first step of converting Vgsp to Vin is completed. The snapshot of the same is as shown below.
+The curves which was originally in -IdsP and -VdsP for PMOS in 3rd quadrant is now change to 4th quadrant with -VdsP in x axis and Idsn in yaxis and sweep over by Vin = Vgs+Vdd. Now IdsN vs -VdsP curve is drawn for different Vin. The first step of converting VgsP to Vin is completed.
 
-![pmos_charac](https://user-images.githubusercontent.com/63381455/154636215-3f8e3940-9eb5-408a-9f9c-6d8fed65a66b.JPG)
+Step 2: Convert VdsP to Vout
+
+Now as we change the VdsP to Vout, everthing remains same except the voltage shifts from -VdsP to Vout eg Vout = 0+2 = 2V i.e the current which is flowing at 2V is “0”iresspective of the value of Vin as the capacitor is fully charge. Now finally the graph shifts to the first quadrant. Also for example Vout = 2-2 = 0. In this we know that the capacitor discharges and a finite amount of Idsn current flows, which can be termed as the charging current. The snapshot of the PMOS load cirve is included below.
+
+![pmos_charac](https://user-images.githubusercontent.com/63381455/154644915-304fb4d5-82b8-41c1-8087-3998b870b480.JPG)
+
+Step 3: Load curve for NMOS transistor
+  | VgsN Value   | Vin = VgsN |
+|--------------|--------------------|
+| VgsN1 = 0V   | Vin1 = 0v          |
+| VgsN2 = 0.5 | Vin2 = 0.5V        |
+| VgsN3 = 1   | Vin3 = 1V          |
+| VgsN4 = 1.5 | Vin4 = 1.5         |
+| VgsN5 = 2   | Vin5 = 2V               |   
+ 
+ ![Nmos_load](https://user-images.githubusercontent.com/63381455/154650659-14d4ac38-1bc5-47e5-b166-e8462636aeba.png)
+
+ 
+Step4: Merge the PMOS and NMOS load curve to obtain the VTC
+    		Finally for VTC the curve between Vin and Vout is to be drawn. As, the Vin and Vout of both PMOS and NMOS are same. Thus in order to obtain the curves we need the superimpose the PMOS load curve over the NMOS load curve. This is necessary as the intersection point of both the load curves defines the region of operation of the transistor. For example, when Vin = 0V the point of intersection or Vout is 2V, From the figure we observe that PMOS is in linear region and NMOS is in saturation region and so on. Thus, by this way we can easily determine for the various sweep in voltage of Vin what is Vout and status of both the transistors. The voltage transfer characteristic of CMOS inverter is as shown in the snapshot below.
+		
+![LC_vtc](https://user-images.githubusercontent.com/63381455/154652762-3b5e4759-5fc7-4ef5-90ce-014969880255.JPG)
 
 
+The following set of programs analyis the static and dynamic characteristics for CMOS inverter of differnt sizes. Here, the CMOS robustness for the variation in switching threshold, noise margin, power supply variation and device variation is plotted and verified as per theoritical understanding. Also, the change in the dynamic characteristic (rise delay, fall delay) is observe and the importance of selecting a proper set of transistor size as per requirement is seen.
 
-3. Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inverter circuit for wp/lp = 2.34wn/ln
+3. Spice deck to plot the vtc characteristics of a cmos inverter circuit for wp/lp = 2.34wn/ln
+```bash
+Spice deck to plot the vtc characteristics of a cmos inverter circuit for wp/lp = 2.34wn/ln
+
+*Model description
+.param temp = 27
+
+*Netlist description
+XM1 out in Vdd Vdd sky130_fd_pr__pfet_01v8 W =0.84 L = 0.15
+XM1 out in 0 0 sky130_fd_pr__nfet_01v8 W =0.36 L = 0.15 
+cload out 0 50fF
+Vdd Vdd 0 1.8V
+Vin in 0 1.8V
+
+*include model file
+.lib "../sky130_fd_pr/models/sky130.lib.spice" tt
+
+*simulation commands
+.op
+.dc Vin 0 1.8V 0.01
+
+*interactive interpretor command
+.control
+run
+display
+setplot dc1
+plot in out
+.endc
+.end
+```
+
+![03_vtc_2 34wl_wf](https://user-images.githubusercontent.com/63381455/152681920-f5cf0fa0-2bf9-4094-bb34-8c1cd3248615.png)
+
+4. Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inverter circuit for wp/lp = 2.34wn/ln
 
 ```bash
 Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inverter circuit for wp/lp = 2.34wn/ln
@@ -356,43 +409,6 @@ plot in out
 ![03_riseFall_2 34wl_wf](https://user-images.githubusercontent.com/63381455/152681840-7b0078e8-33b7-46a7-9cc6-faae6b709947.png)
 
 <!--![03_riseFall_2 34wl](https://user-images.githubusercontent.com/63381455/152681843-4b5273fc-fd11-455f-ba7b-f8b071b0b47a.png)-->
-
-
-4. These set of programs analyis the static and dynamic characteristics for CMOS inverter of differnt sizes. Here, the CMOS robustness for the variation in switching threshold, noise margin, power supply variation and device variation is plotted and verified as per theoritical understanding. Also, the change in the dynamic characteristic (rise delay, fall delay) is observe and the importance of selecting a proper set of transistor size as per requirement is seen.
-
-Spice deck to plot the vtc characteristics of a cmos inverter circuit for wp/lp = 2.34wn/ln
-```bash
-Spice deck to plot the vtc characteristics of a cmos inverter circuit for wp/lp = 2.34wn/ln
-
-*Model description
-.param temp = 27
-
-*Netlist description
-XM1 out in Vdd Vdd sky130_fd_pr__pfet_01v8 W =0.84 L = 0.15
-XM1 out in 0 0 sky130_fd_pr__nfet_01v8 W =0.36 L = 0.15 
-cload out 0 50fF
-Vdd Vdd 0 1.8V
-Vin in 0 1.8V
-
-*include model file
-.lib "../sky130_fd_pr/models/sky130.lib.spice" tt
-
-*simulation commands
-.op
-.dc Vin 0 1.8V 0.01
-
-*interactive interpretor command
-.control
-run
-display
-setplot dc1
-plot in out
-.endc
-.end
-```
-
-![03_vtc_2 34wl_wf](https://user-images.githubusercontent.com/63381455/152681920-f5cf0fa0-2bf9-4094-bb34-8c1cd3248615.png)
-
 
 <!--![03_vtc_2 34wl](https://user-images.githubusercontent.com/63381455/152681922-93c4189c-1c95-4f93-a00e-1a0e85f8f9ad.png)-->
 
@@ -623,5 +639,9 @@ plot out vs in
 
 ![11_deviceVariation_wfVm](https://user-images.githubusercontent.com/63381455/152848582-b940d2db-eb05-4100-86c1-8094914cc61b.png)
 
+[Acknowlegement](#ack)
+
+- [Kunal Ghosh](https://github.com/kunalg123), Co-founder, VSD Corp. Pvt. Ltd.
+- [Vrushab Damle](https://github.com/VrushabhDamle/sky130CircuitDesignWorkshop)
 
 
