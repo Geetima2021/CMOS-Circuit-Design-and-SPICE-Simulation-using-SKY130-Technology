@@ -214,7 +214,7 @@ Let us now see the effect of velocity saturation on the drain current equation.
 - Current should increase at lower nodes as shown in above equation
 - However velocity saturation causes the device to saturate early
 
-The below peogram shows the effect of velocity saturation on the lower node devices
+The below program shows the effect of velocity saturation on the lower node devices
 
 2a. [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
 
