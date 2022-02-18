@@ -19,10 +19,10 @@
   - [Velocity saturation effect a](#vel) 
    - [Spice deck for w=0.39u L=0.15u and generate ID-VDS graph](#deck2)
    - [Spice deck for w=0.39u and l=0.15u to generate Id-Vgs curve](#deck4)
-- [CMOS](#c)
+- [CMOS](#c
   - [Voltage tranfer characteristic](#tra)
   - [Static CMOS behaviour - CMOS robustness](#rob)
-  - [Spice programs](#sp)
+  
 - [Conclusion](#con)
 - [Acknowlegement](#ack)
 - [Contact imformation](#con)
@@ -284,13 +284,37 @@ plot -Vdd#branch
 
 ![02_IDVgs_0 39_w015l_wf](https://user-images.githubusercontent.com/63381455/154209884-c21b123f-a3d0-4203-ad6d-4ed78d9a92e2.png)
 
+# CMOS 
+
+Complementary MOSFET is a combination of NMOS and PMOS transistor. It is a basic building block of any circuit design. The figure below shows the CMOS circuit and its behaviour depending on the input voltage. Whenever Vin = Vdd, a direct path exixt between Vout and Vss and thus we can say that the capaciors discharges and Vout = 0. However, when Vin = 0, a direct path exist through Vdd and Vout and capacitor charges to Vdd and so also Vout = Vdd.
+
+![Cmos1](https://user-images.githubusercontent.com/63381455/154632526-b59ab8be-f9fb-44ac-a79d-ddc36c1f907a.JPG)
+
+## [Voltage tranfer characteristic](#tra)
+
+ a) Mos as a switch : We know that, with fiinite ON resistance when |Vgs| > |vt|, curent flows through the circuit and we can say it is turn ON and with infinite OFF resistance whenever Vgs| < |vt|, the circuit is OFF that is there is no current flow from source to drain.
+ 
+ b)	Introduction to standard MOS voltage current parameters: The snapshot below shows the CMOS voltage and current parameters. Certain observations are mode based on the parameters
+	   
+
+![Cmos_curr_vtg_par](https://user-images.githubusercontent.com/63381455/154633767-4ebe8956-dfa3-46b4-b9a7-328d25c19f83.JPG)
+
+c) Voltage transfer characteristics for static inverter:
+   Certain steps are involved in obtaining the VTC curve of an inverter. The characteristic/ load curve of both NMOS and PMOS transistors are used for the same. Let us assume Vdd =2v and it is long channel device.
+ 
+ Step1: Select few Vgsp value
+ 
+ 
+
+
+
 
 3. Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inverter circuit for wp/lp = 2.34wn/ln
 
 ```bash
 Spice deck to plot the dynamic characteristics(rise and fall delay) of cmos inverter circuit for wp/lp = 2.34wn/ln
 
-*Model description
+*Model descriptio
 .param temp = 27
 
 *Netlist description
@@ -397,11 +421,6 @@ plot in out
 ![04_riseFall_1wl_wf](https://user-images.githubusercontent.com/63381455/152682013-253c279e-64e1-40de-a43d-938e3881fd39.png)
 
 
-<!--![04_riseFall_1wl](https://user-images.githubusercontent.com/63381455/152682015-f13c3249-ffd0-42be-8d2e-239e91ae474c.png)-->
-
-<!---The delay table for different PMOS size with respect to constant NMOS size for sky 130nm technology node is as shown below --->
-
-<!---![delay](https://user-images.githubusercontent.com/63381455/152683309-3b51ac22-5c82-48e0-87be-585a9c0e5e54.png)--->
 
 The delay table for different PMOS size with respect to constant NMOS size using sky130technology file for tt corner is as shown below. The analysis starts from w = 0.42 and l = 0.14um. The programs required for evaluation of the rise delay and fall delay for different (w/l) ratio of NMOS and PMOS transistor is [here](https://github.com/Geetima2021/CMOS-Circuit-Design-and-SPICE-Simulation-using-SKY130-Technology/tree/main/Program) and so is the static characterisctics switching threshold evaluation. 
 
@@ -439,32 +458,6 @@ Table3: Delay table using sky130 ss corner
 | wp/lp     | 5(wn/ln)    |          64         |         102        |           0.935484          |
 
 
- 
-<!---| **wp/lp** | **x.wn/ln** | **Rise delay (ps)** | **Fall delay(ps)** | ** Switching threshold (V)** |
-|-----------|-------------|---------------------|--------------------|-------------------------
-| wp/lp     | 1.wn/ln     |         183        |         78       |    0.819836 |     
-| wp/lp     | 2.wn/ln     |         104         |         81        |  0.858065  |  
-| wp/lp     | 2.5(wn/ln)   |         88       |         81       |  0.870968    |
-| wp/lp     | 3.wn/ln     |         77         |         78       |  0.879032   |        
-| wp/lp     | 4.wn/ln     |         64         |         82       |  0.896774   |     
-| wp/lp     | 5.wn/ln     |         57         |         85        |  0.909677  | ---->   
-
-
-<!---| **(Wp/Lp)um** | **(Wn/Ln)um** | **Switching threshold (Vm) V** | **Rise delay(ps)**     | **Fall delay (ps)**    |
-|---------------|---------------|--------------------------------|------------------------|------------------------|
-| Wp/Lp         | 1.Wn/Ln       | ~0.99                          | 1.1641 - 1.0159 = 148  | 2.07769 - 2.00578= 72  |
-| Wp/Lp         | 2.Wn/Ln       | 1.1519 = ~1.2                  | 1.09627 -01.01591 = 80 | 2.08198 - 2.00582 = 76 |
-| Wp/Lp         | 3.Wn/Ln       | 1.25129 =~1.25                 | 1.07287 - 1.0159 = 57  | 2.08619 - 2.00583 = 80 |
-| Wp/Lp         | 4.Wn/Ln       | 1.32054 =~1.32                 | 1.06101 -1.01589 = 45  | 2.0933 - 2.00593 = 84  |
-| Wn/Ln         | 5.Wn/Ln       | 0.918462 =~1.4                 | 1.05387 - 1.01548 = 37 | 2.0944 - 2.00582 = 88  |--->
-
-<!---Certain observations is made from the above table
-
-- For (Wp/Lp) = 2.(Wn/Ln), the rise and fall delay is observe to be approximately equal and thus these set of transistor pair is best for the clock buffers.
-- The other transistor sizes can still find application in the data path as regular inverters/buffer where compromise on the rise and fall delay can be made.
--  When Wp/Lp is increased, the rise delay is isgnificantly reduced because time required for the output capacitor to charge decreases significantly and the reason is the availability of a bigger area to charge the capacitor.
-   Ron(PMOS) ~ 2.5*Ron(NMOS)
-- Due to fabrication process obtaining the exact sizes of the transistor is not possible and the small variation in the switching threshold between the different transistor sizes act as boon in managing the device behaviour.--->
 
 6. Spice deck to find the noise margin of a cmos inverter circuit for (wp/lp=1/0.15) and (wn/ln=0.36/0.15)
 
